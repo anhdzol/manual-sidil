@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 3 Elementos generales del procesamiento de datos | SIDIL: Manual del procesamiento y explotación de la información</title>
-  <meta name="description" content="Capítulo 3 Elementos generales del procesamiento de datos | SIDIL: Manual del procesamiento y explotación de la información" />
+  <meta name="description" content="Breve descripcion pendiente" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 3 Elementos generales del procesamiento de datos | SIDIL: Manual del procesamiento y explotación de la información" />
   <meta property="og:type" content="book" />
   
-  
-  <meta name="github-repo" content="https://anhdzol.github.io/testsidil/" />
+  <meta property="og:description" content="Breve descripcion pendiente" />
+  <meta name="github-repo" content="anhdzol/testsidil/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Capítulo 3 Elementos generales del procesamiento de datos | SIDIL: Manual del procesamiento y explotación de la información" />
   
-  
+  <meta name="twitter:description" content="Breve descripcion pendiente" />
   
 
 <meta name="author" content="American Institutes for Research" />
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="estructura-y-flujos-de-trabajo-del-sidil.html"/>
-<link rel="next" href="procesamiento.html"/>
+<link rel="next" href="presentación-sintética-de-todos-los-scripts.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,13 +51,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -162,6 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIexplicaciongeneral"><i class="fa fa-check"></i>Módulo I: actualización de indicadores</a></li>
 <li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIIexplicaciongeneral"><i class="fa fa-check"></i>Módulo II: Consulta al universo de CT, imputación de indicadores y predicción de riesgo</a></li>
 <li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIyIIexplicaciongeneral"><i class="fa fa-check"></i>Módulos I y II: operables desde la interfaz de automatización</a></li>
+<li class="chapter" data-level="2.2.1" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#módulo-iii-consulta-de-la-mpr-para-priorización-de-ct-a-inspeccionar"><i class="fa fa-check"></i><b>2.2.1</b> Módulo III: Consulta de la MPR para priorización de CT a inspeccionar</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="elementosgenerales.html"><a href="elementosgenerales.html"><i class="fa fa-check"></i><b>3</b> Elementos generales del procesamiento de datos</a>
@@ -182,58 +178,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="elementosgenerales.html"><a href="elementosgenerales.html#software-para-el-procesamiento-de-datos"><i class="fa fa-check"></i><b>3.6</b> Software para el procesamiento de datos</a></li>
 <li class="chapter" data-level="3.7" data-path="elementosgenerales.html"><a href="elementosgenerales.html#catalogos"><i class="fa fa-check"></i><b>3.7</b> Catálogos de información</a></li>
+<li class="chapter" data-level="3.8" data-path="elementosgenerales.html"><a href="elementosgenerales.html#la-matriz-de-predicción-de-riesgo"><i class="fa fa-check"></i><b>3.8</b> La Matriz de Predicción de Riesgo</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="procesamiento.html"><a href="procesamiento.html"><i class="fa fa-check"></i><b>4</b> Procesamiento de las fuentes de información y generación de la MPR</a>
+<li class="chapter" data-level="4" data-path="presentación-sintética-de-todos-los-scripts.html"><a href="presentación-sintética-de-todos-los-scripts.html"><i class="fa fa-check"></i><b>4</b> Presentación sintética de todos los scripts</a></li>
+<li class="chapter" data-level="5" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html"><i class="fa fa-check"></i><b>5</b> R, RStudio y Python</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModI"><i class="fa fa-check"></i><b>4.1</b> Módulo I: actualización de indicadores</a>
+<li class="chapter" data-level="5.1" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#r-y-rstudio"><i class="fa fa-check"></i><b>5.1</b> R y RStudio</a></li>
+<li class="chapter" data-level="5.2" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#el-entorno-de-rstudio"><i class="fa fa-check"></i><b>5.2</b> El entorno de RStudio</a></li>
+<li class="chapter" data-level="5.3" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#procedimiento-para-ejecutar-proyectos-y-scripts-en-rstudio"><i class="fa fa-check"></i><b>5.3</b> Procedimiento para ejecutar proyectos y scripts en RStudio</a></li>
+<li class="chapter" data-level="5.4" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#tipos-de-errores-que-se-pudieran-presentar"><i class="fa fa-check"></i><b>5.4</b> Tipos de errores que se pudieran presentar</a></li>
+<li class="chapter" data-level="5.5" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#python"><i class="fa fa-check"></i><b>5.5</b> Python</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="especificaciones-del-servidor.html"><a href="especificaciones-del-servidor.html"><i class="fa fa-check"></i><b>6</b> Especificaciones del servidor</a></li>
+<li class="chapter" data-level="7" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html"><i class="fa fa-check"></i><b>7</b> Conceptos y hallazgos clave en la exploración del SIAPI-SIPAS</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIdesafios"><i class="fa fa-check"></i><b>4.1.1</b> Desafíos al tratamiento de bases de datos externas</a></li>
-<li class="chapter" data-level="4.1.2" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModInivelesagregacion"><i class="fa fa-check"></i><b>4.1.2</b> Sobre niveles de agregación</a></li>
-<li class="chapter" data-level="4.1.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModInominativo"><i class="fa fa-check"></i><b>4.1.3</b> Sobre estimaciones puntuales nominativas</a></li>
-<li class="chapter" data-level="4.1.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModEspecificaciones"><i class="fa fa-check"></i><b>4.1.4</b> Especificaciones por fuente de información</a></li>
-<li class="chapter" data-level="4.1.5" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIcoyvshist"><i class="fa fa-check"></i><b>4.1.5</b> Estimaciones puntuales e históricas de indicadores</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="procesamiento.html"><a href="procesamiento.html#moduloii"><i class="fa fa-check"></i><b>4.2</b> Módulo II: imputación de indicadores y generación de la MPR</a>
+<li class="chapter" data-level="7.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#conceptos-y-clasificaciones-relevantes."><i class="fa fa-check"></i><b>7.1</b> Conceptos y clasificaciones relevantes.</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="procesamiento.html"><a href="procesamiento.html#propositomoduloii"><i class="fa fa-check"></i><b>4.2.1</b> Propósito principal</a></li>
-<li class="chapter" data-level="4.2.2" data-path="procesamiento.html"><a href="procesamiento.html#requisitosmoduloii"><i class="fa fa-check"></i><b>4.2.2</b> Requisitos para la ejecución de este módulo</a></li>
-<li class="chapter" data-level="4.2.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIimputacion"><i class="fa fa-check"></i><b>4.2.3</b> Imputación de indicadores laborales al universo de CT</a></li>
-<li class="chapter" data-level="4.2.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIprediccion"><i class="fa fa-check"></i><b>4.2.4</b> Predicción de riesgo</a></li>
+<li class="chapter" data-level="7.1.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#planeación-de-la-inspección"><i class="fa fa-check"></i><b>7.1.1</b> Planeación de la inspección</a></li>
+<li class="chapter" data-level="7.1.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#meta-y-realización-de-inspecciones-a-realizar-por-tipo-estado-y-por-oficina"><i class="fa fa-check"></i><b>7.1.2</b> Meta y realización de inspecciones a realizar por tipo, estado y por oficina</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIyIIinterfazAuto"><i class="fa fa-check"></i><b>4.3</b> Interfaz de automatización: Módulos I y II</a>
+<li class="chapter" data-level="7.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#alcance-de-la-inspección"><i class="fa fa-check"></i><b>7.2</b> Alcance de la inspección</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="procesamiento.html"><a href="procesamiento.html#propositointerfaz1"><i class="fa fa-check"></i><b>4.3.1</b> Propósito de la interfaz</a></li>
-<li class="chapter" data-level="4.3.2" data-path="procesamiento.html"><a href="procesamiento.html#accesointerfaz1"><i class="fa fa-check"></i><b>4.3.2</b> Acceso a la interfaz</a></li>
-<li class="chapter" data-level="4.3.3" data-path="procesamiento.html"><a href="procesamiento.html#organizacioninterfaz1"><i class="fa fa-check"></i><b>4.3.3</b> Organización de la interfaz</a></li>
-<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz1-8"><i class="fa fa-check"></i>Procesamiento de información</a></li>
+<li class="chapter" data-level="7.2.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#criterios-de-selección-utilizados-antes-del-sidil."><i class="fa fa-check"></i><b>7.2.1</b> Criterios de selección utilizados antes del SIDIL.</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIIinterfazConsulta"><i class="fa fa-check"></i><b>4.4</b> Módulo III: Priorización de los centros de trabajo</a>
+<li class="chapter" data-level="7.3" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#aspectos-pendientes-y-posibles-extensiones-a-futuro"><i class="fa fa-check"></i><b>7.3</b> Aspectos pendientes y posibles extensiones a futuro</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="procesamiento.html"><a href="procesamiento.html#propositointerfaz2"><i class="fa fa-check"></i><b>4.4.1</b> Propósito de la interfaz</a></li>
-<li class="chapter" data-level="4.4.2" data-path="procesamiento.html"><a href="procesamiento.html#accesointerfaz2"><i class="fa fa-check"></i><b>4.4.2</b> Acceso a la interfaz</a></li>
-<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-1"><i class="fa fa-check"></i>Primera prestaña: Filtrado</a></li>
-<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-3"><i class="fa fa-check"></i>Segunda pestaña: Analisis</a></li>
-<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-4"><i class="fa fa-check"></i>Tabla final de resultados con sus pestañas</a></li>
+<li class="chapter" data-level="7.3.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#limitaciones-en-la-construcción-de-la-variable-dependiente"><i class="fa fa-check"></i><b>7.3.1</b> Limitaciones en la construcción de la variable dependiente</a></li>
+<li class="chapter" data-level="7.3.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#posibles-alternativas-como-variable-dependiente"><i class="fa fa-check"></i><b>7.3.2</b> Posibles alternativas como variable dependiente</a></li>
+<li class="chapter" data-level="7.3.3" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#section"><i class="fa fa-check"></i><b>7.3.3</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIV"><i class="fa fa-check"></i><b>4.5</b> Módulo IV: Entrenamiento del modelo</a>
+</ul></li>
+<li class="chapter" data-level="8" data-path="box-and-tables.html"><a href="box-and-tables.html"><i class="fa fa-check"></i><b>8</b> Box and tables</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="procesamiento.html"><a href="procesamiento.html#propositoModIV"><i class="fa fa-check"></i><b>4.5.1</b> Propósito principal</a></li>
-<li class="chapter" data-level="4.5.2" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVSIAPI"><i class="fa fa-check"></i><b>4.5.2</b> Construcción de la serie histórica de inspecciones laborales (2012-2022)</a></li>
-<li class="chapter" data-level="4.5.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVindicadores"><i class="fa fa-check"></i><b>4.5.3</b> Construcción de la serie histórica de indicadores laborales</a></li>
-<li class="chapter" data-level="4.5.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVmatching"><i class="fa fa-check"></i><b>4.5.4</b> Matching de las series históricas</a></li>
-<li class="chapter" data-level="4.5.5" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVEntrenamiento"><i class="fa fa-check"></i><b>4.5.5</b> Entrenamiento y evaluación del modelo de predicción</a></li>
+<li class="chapter" data-level="8.0.1" data-path="box-and-tables.html"><a href="box-and-tables.html#tablas"><i class="fa fa-check"></i><b>8.0.1</b> Tablas</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="presentación-sintética-de-todos-los-scripts.html"><a href="presentación-sintética-de-todos-los-scripts.html"><i class="fa fa-check"></i><b>5</b> Presentación sintética de todos los scripts</a></li>
-<li class="chapter" data-level="6" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html"><i class="fa fa-check"></i><b>6</b> R, RStudio y Python</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#r-y-rstudio"><i class="fa fa-check"></i><b>6.1</b> R y RStudio</a></li>
-<li class="chapter" data-level="6.2" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#el-entorno-de-rstudio"><i class="fa fa-check"></i><b>6.2</b> El entorno de RStudio</a></li>
-<li class="chapter" data-level="6.3" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#procedimiento-para-ejecutar-proyectos-y-scripts-en-rstudio"><i class="fa fa-check"></i><b>6.3</b> Procedimiento para ejecutar proyectos y scripts en RStudio</a></li>
-<li class="chapter" data-level="6.4" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#tipos-de-errores-que-se-pudieran-presentar"><i class="fa fa-check"></i><b>6.4</b> Tipos de errores que se pudieran presentar</a></li>
-<li class="chapter" data-level="6.5" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#python"><i class="fa fa-check"></i><b>6.5</b> Python</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="especificaciones-del-servidor.html"><a href="especificaciones-del-servidor.html"><i class="fa fa-check"></i><b>7</b> Especificaciones del servidor</a></li>
 </ul>
 
       </nav>
@@ -278,6 +256,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><strong>El script de configuración inicial se ejecuta antes de iniciar el procesamiento de cada módulo o proceso en particular</strong>, de manera automática desde los scripts secuenciadores. Esto provee una estructura de información y definición de parámetros armonizada a lo largo de todo el SIDIL, sin importar si se ejecuta uno o varios módulos del sistema.</p>
 <p>El motivo por el cual el script que lee catálogos y define funciones no está directamente contenido en el de configuración inicial reside en que para la ejecución de ciertos procesos en la interfaz de automatización se requiere únicamente la lectura de catálogos y funciones. Sin embargo, no afecta a la conclusión de que el script de configuración inicial es de menester importancia y se ejecuta en todos los procesos del SIDIL que se realizan con R.</p>
+<p><mark>@<span class="citation">@Propuesta</span> de capsula: tour rapido por config inicial y 0 funciones:
+@@ sobre todo importante porque habra cambios importantes para acomodar las apps de las interfaces.
+@<span class="citation">@posiblemente</span> mas o menos por aqui se incorpore todavía un parrafo al respecto</mark></p>
 </div>
 <div id="secuenciadores" class="section level3 hasAnchor" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Scripts secuenciadores<a href="elementosgenerales.html#secuenciadores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -287,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="figure"><span style="display:block;" id="fig:scriptsecuenciador"></span>
 <img src="images-1/02/scriptsecuenciador.png" alt="Presentación esquematizada del funcionamiento de un script secuenciador"  />
 <p class="caption">
-Ilustración 3.1: Presentación esquematizada del funcionamiento de un script secuenciador
+Recuadro 3.1: Presentación esquematizada del funcionamiento de un script secuenciador
 </p>
 </div>
 <p>¿Cuántos scripts secuenciadores existen? El número total asciende a once porque actualmente hay un script secuenciador para la actualización de indicadores de la ENOE, otro para indicadores del IMSS, otro para indicadores del Censo Económico y otro tres para el módulo II, concretamente para consulta al DNE, SIAPI y el matching:</p>
@@ -316,7 +297,7 @@ Ilustración 3.1: Presentación esquematizada del funcionamiento de un script se
 <div class="figure"><span style="display:block;" id="fig:secConfigInicial"></span>
 <img src="images-1/02/sec_config_inicial.png" alt="Presentación esquematizada de la relación "  />
 <p class="caption">
-Ilustración 3.2: Presentación esquematizada de la relación
+Recuadro 3.2: Presentación esquematizada de la relación
 </p>
 </div>
 </div>
@@ -331,18 +312,20 @@ Ilustración 3.2: Presentación esquematizada de la relación
 <div class="figure"><span style="display:block;" id="fig:organizacioncatalogos"></span>
 <img src="images-1/03/organizacion_catalogos.png" alt="Organización básica de las principales carpetas"  />
 <p class="caption">
-Ilustración 3.3: Organización básica de las principales carpetas
+Recuadro 3.3: Organización básica de las principales carpetas
 </p>
 </div>
 <p>Al interior de 1_insumos se encuentran tres subcarpetas:</p>
 <ul>
 <li><p>La primera, <em>catalogos</em>, reúne los diferentes archivos que sistematizan y etiquetan la información. Sobre ello se profundiza en la sección 3.9.</p></li>
 <li><p>La segunda es <em>originales</em> y sirve para depositar las fuentes de información sin procesamiento previo, por ejemplo, los archivos originales en formato dbf que componen la ENOE, o los archivos separados por tabulados que componen los registros administrativos del IMSS.</p></li>
-<li><p>En la tercer subcarpeta, de nombre <em>procesados</em>, se almacenan los resultados del procesamiento que ya forma parte del SIDIL, concretamente, el resultado de la extracción y transformación de cada fuente de información, siempre que se requiera el guardado de los temporales procesados.</p>
+<li><p>En la tercer subcarpeta, de nombre <em>procesados</em>, se almacenan los resultados del procesamiento que ya forma parte del SIDIL, concretamente, el resultado de la extracción y transformación de cada fuente de información, siempre que se requiera el guardado de los temporales procesados. Notar que un criterio que determina si los resultados se resguardan aquí, en esta carpeta, o en <em>3_resultados</em> es que siempre que los resultados sean consultados por otro módulo entonces se guardan en <em>3_resultados</em>.</p>
 <ul>
 <li>Notar que en el caso de la ENOE, dado que su procesamiento no demanda mucha RAM, no se escribe a disco en esta carpeta. En contraste, para el procesamiento del IMSS se escriben tanto archivos temporales intermedios (que se borran luego de su utilización de manera automática) como también el guardado de los procesados “finales” (sin que estos sean resultados, sino que únicamente “preprocesados” que reducen las dimensiones y “limpian” algunos campos de los insumos).</li>
 </ul></li>
 </ul>
+<p><mark>@@ idea capsula
+breve tour por las carpetas dentro de 1_insumos</mark></p>
 <p>Al interior de <em>2_codigos</em>, existen tres principales subcarpetas:</p>
 <ul>
 <li><p><em>cod_config_inicial</em>: almacena el script <em>0_config_inicial</em>, y el script <em>0_funciones_catalogos</em> que se corren de manera anidada como parte de la ejecución de los scripts secuenciadores</p></li>
@@ -362,6 +345,10 @@ Ilustración 3.3: Organización básica de las principales carpetas
 <li><p><em>Logs:</em> resguarda los logs (archivos .txt) que contienen los resultados y mensajes de la consola cuando se ejecutan los scripts</p></li>
 <li><p><em>parametros: es la exportación de los parámetros que se definen en el script de configuración inicial.</em></p></li>
 </ul>
+<p><mark>@@ idea video capsula:
+breve tour por las carpetas dentro de 4_resultados
+particularmente mostrar la diferencia entre las dos bitacoras.
+mostrar también cómo se lee el log</mark></p>
 </div>
 <div id="temporalidad" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Sobre la temporalidad<a href="elementosgenerales.html#temporalidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -372,26 +359,54 @@ Ilustración 3.3: Organización básica de las principales carpetas
 </ul>
 <p>El SIDIL, a lo largo de los diferentes módulos, está configurado para procesar o utilizar la última versión de un objeto, independientemente de su periodo de referencia. Es decir, toma la fecha de modificación que forma parte del nombre del archivo. Por eficiencia, lo más sensato es recurrir a la fecha de modificación.</p>
 <p>En cambio, el formato de la referencia al periodo temporal es específico para cada fuente de información, toda vez que la frecuencia de actualización y representatividad es específica a cada fuente. Así por ejemplo la tabla con la información sociodemográfica de las personas encuestadas en la ENOE contiene en su nombre “1t2022” haciendo referencia al primer trimestre de 2022. En cambio, para el IMSS; cuya información original es de frecuencia mensual, la referencia es 2022131 (que representa la fecha de corte al 31 de enero de 2022).</p>
-<p>Recuadro 6: Versionado de elementos</p>
-<table>
-<caption>El versionado de los archivos no solo permite la trazabilidad (ver subsección siguiente) sino que además es indispensable para el funcionamiento adecuado del SIDIL. Dos ejemplos: primero, la lectura de scripts de cálculo de indicadores en el módulo I requiere la identificación de fecha (tan solo para poder aplicarlo, pero además para identificar la versión más reciente). De la misma manera, la interfaz de explotación de datos requiere del adecuado versionado de la MPR para poder identificar la versión más reciente y ofrecer la predicción de riesgos más actualizada.</caption>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p><strong>El principio de versionado para todos los elementos en SIDIL es que la última versión de dicho elemento es la que se debe utilizar,</strong> motivo por el cual, en el nombre del elemento (así como se guarda en las carpetas referidas) se debe incluir la fecha.</p>
-<p>El formato de definición de la fecha que se utiliza para identificar la versión únicamente será el siguiente: <em>aaaa_mm_dd_hhmm</em>, es decir, cuatro dígitos para el año, seguido de un guion bajo, luego dos dígitos para el mes, otro guion bajo, luego dos dígitos para el día, otro guion bajo, y dos dígitos de la hora  y dos de la hora juntos. Notar que la hora es en formato 24 horas. Por ejemplo: 2022_11_03_0901 (año 2022, mes noviembre, día 03, 09 horas con 01 minutos). Este versionado se actualiza y genera automáticamente mediante el script de configuración inicial. La fecha y hora se obtiene directamente del sistema.</p>
-<p>Para los scripts, el versionado también se incluye en el nombre del script al guardarlo; no es necesario incluir la hora y minuto del guardado pero sí mantener la estructura <em>aaaa_mm_dd</em> de la fecha. Notar que el guardado de scripts se realiza de manera manual, toda vez que se consideran relativamente estables en el SIDIL y que justamente por eso el versionado de scripts no lleva horas ni minutos Es decir, cada cambio que se realice al script, se sugiere enfáticamente, debe culminar con el guardado de una nueva versión con una fecha posterior (al menos un día) a la versión anterior. El SIDIL está configurado para que scripts como el secuenciador, busquen la última versión de los diferentes scripts. En consecuencia:  si hay dos elementos con el mismo nombre, se utiliza el que tenga la fecha de edición más reciente. Esta regla aplica para toda lectura de insumos.</p>
-<p>Esto debe distinguirse del periodo de referencia, cuyo formato es específico a las fuentes de información utilizadas. Por ejemplo, en la ENOE se utiliza 1t2022, mientras que en el IMSS se utiliza 2022131 para enero de 2022.</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="figure"><span style="display:block;" id="fig:versionadoelementos"></span>
+<img src="images-1/important-icon.svg" alt="Versionado de elementos" width="50px" style="float:left; background-color: #f5f5f5; padding-right:1em" />
+<p class="caption">
+Recuadro 3.4: Versionado de elementos
+</p>
+</div>
+<div class="rmdcomment">
+<p>
+<strong>El principio de versionado para todos los elementos en SIDIL
+es que la última versión de dicho elemento es la que se debe
+utilizar,</strong> motivo por el cual, en el nombre del elemento (así
+como se guarda en las carpetas referidas) se debe incluir la fecha.
+</p>
+<p>
+El formato de definición de la fecha que se utiliza para identificar
+la versión únicamente será el siguiente: <em>aaaa_mm_dd_hhmm</em>, es
+decir, cuatro dígitos para el año, seguido de un guion bajo, luego dos
+dígitos para el mes, otro guion bajo, luego dos dígitos para el día,
+otro guion bajo, y dos dígitos de la hora  y dos de la hora juntos.
+Notar que la hora es en formato 24 horas. Por ejemplo: 2022_11_03_0901
+(año 2022, mes noviembre, día 03, 09 horas con 01 minutos). Este
+versionado se actualiza y genera automáticamente mediante el script de
+configuración inicial. La fecha y hora se obtiene directamente del
+sistema.
+</p>
+<p>
+Para los scripts, el versionado también se incluye en el nombre del
+script al guardarlo; no es necesario incluir la hora y minuto del
+guardado pero sí mantener la estructura <em>aaaa_mm_dd</em> de la fecha.
+Notar que el guardado de scripts se realiza de manera manual, toda vez
+que se consideran relativamente estables en el SIDIL y que justamente
+por eso el versionado de scripts no lleva horas ni minutos Es decir,
+cada cambio que se realice al script, se sugiere enfáticamente, debe
+culminar con el guardado de una nueva versión con una fecha posterior
+(al menos un día) a la versión anterior. El SIDIL está configurado para
+que scripts como el secuenciador, busquen la última versión de los
+diferentes scripts. En consecuencia:  si hay dos elementos con el mismo
+nombre, se utiliza el que tenga la fecha de edición más reciente. Esta
+regla aplica para toda lectura de insumos.
+</p>
+<p>
+Esto debe distinguirse del periodo de referencia, cuyo formato es
+específico a las fuentes de información utilizadas. Por ejemplo, en la
+ENOE se utiliza 1t2022, mientras que en el IMSS se utiliza 2022131 para
+enero de 2022.
+</p>
+</div>
+<p>El versionado de los archivos no solo permite la trazabilidad (ver subsección siguiente) sino que además es indispensable para el funcionamiento adecuado del SIDIL. Dos ejemplos: primero, la lectura de scripts de cálculo de indicadores en el módulo I requiere la identificación de fecha (tan solo para poder aplicarlo, pero además para identificar la versión más reciente). De la misma manera, la interfaz de explotación de datos requiere del adecuado versionado de la MPR para poder identificar la versión más reciente y ofrecer la predicción de riesgos más actualizada.</p>
 </div>
 <div id="trazabilidad" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Sobre trazabilidad: bitácora, log y parámetros<a href="elementosgenerales.html#trazabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -495,30 +510,61 @@ Ilustración 3.3: Organización básica de las principales carpetas
 <li>Catálogo de materias y submaterias que forman parte del potencial alcance de una inspección (subcarpeta <em>marco_normativo</em>, archivo: <em>cat_submaterias)</em>. Establece la relación entre el código identificador de submaterias y materias de inspección con las etiquetas.</li>
 </ol></li>
 </ol>
-<p>Recuadro 8: Versiones de archivos de catálogos.</p>
-<table>
-<caption>La Matriz de Predicción de Riesgo</caption>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p>Si se requiere hacer algún cambio sobre la información que abarca los catálogos este se debe hacer directamente en los mismos catálogos, pero se sugiere sea de la siguiente manera:</p>
+<div class="figure"><span style="display:block;" id="fig:cambioscatalogos"></span>
+<img src="images-1/important-icon.svg" alt="Versiones de archivos de catálogos." width="50px" style="float:left; background-color: #f5f5f5; padding-right:1em" />
+<p class="caption">
+Recuadro 3.5: Versiones de archivos de catálogos.
+</p>
+</div>
+<div class="rmdcomment">
+<p>
+Si se requiere hacer algún cambio sobre la información que abarca los
+catálogos este se debe hacer directamente en los mismos catálogos, pero
+se sugiere sea de la siguiente manera:
+</p>
 <ol style="list-style-type: decimal">
-<li><p>Resguardar una copia del catálogo desactualizado en la subcarpeta <em>anteriores_descartar</em> que se encuentra en su respectiva carpeta. Se sugiere guardarlo con la fecha en la que dicho catalogo fue reemplazado.</p></li>
-<li><p>Modificar y/o reemplazar el catálogo, para que esta sea procesada correctamente por los scripts, sin cambiar el nombre del archivo del catálogo.</p></li>
+<li>
+<p>
+Resguardar una copia del catálogo desactualizado en la subcarpeta
+<em>anteriores_descartar</em> que se encuentra en su respectiva carpeta.
+Se sugiere guardarlo con la fecha en la que dicho catalogo fue
+reemplazado.
+</p>
+</li>
+<li>
+<p>
+Modificar y/o reemplazar el catálogo, para que esta sea procesada
+correctamente por los scripts, sin cambiar el nombre del archivo del
+catálogo.
+</p>
+</li>
 </ol>
-<p>Por ejemplo, si se desarrolla un nuevo indicador que quiere ser integrado al SIDIL, no solo se deben desarrollar sus códigos y guardarlos en las carpetas correspondientes, también debe ser agregado al catálogo de indicadores (<em>cat_indicadores</em>), o si cambia el marco normativo, este se debe actualizar en su respectiva carpeta de catálogos (<em>marco_normativo</em>).</p>
-<p>De ser necesario, es posible resguardar la versión anterior del catálogo, entonces puede resguardarse en la subcarpeta <em>anteriores</em>. Lo importante es que el script de configuración inicial, siempre "buscará" el mismo nombre de archivo insumo para cada catálogo, independientemente de su contenido o vigencia.</p>
-<p>Precisando esto último, la carga de los diferentes catálogos será a partir de la información resguardada en el catálogo de catálogos, mismo que se encuentra en la raíz del proyecto. Esto es importante porque la consistencia de nombres que se estipula a lo largo del SIDIL también requiere tomar este archivo en consideración.</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>
+Por ejemplo, si se desarrolla un nuevo indicador que quiere ser
+integrado al SIDIL, no solo se deben desarrollar sus códigos y
+guardarlos en las carpetas correspondientes, también debe ser agregado
+al catálogo de indicadores (<em>cat_indicadores</em>), o si cambia el
+marco normativo, este se debe actualizar en su respectiva carpeta de
+catálogos (<em>marco_normativo</em>).
+</p>
+<p>
+De ser necesario, es posible resguardar la versión anterior del
+catálogo, entonces puede resguardarse en la subcarpeta
+<em>anteriores</em>. Lo importante es que el script de configuración
+inicial, siempre <em>buscará</em> el mismo nombre de archivo insumo para
+cada catálogo, independientemente de su contenido o vigencia.
+</p>
+<p>
+Precisando esto último, la carga de los diferentes catálogos será a
+partir de la información resguardada en el catálogo de catálogos, mismo
+que se encuentra en la raíz del proyecto. Esto es importante porque la
+consistencia de nombres que se estipula a lo largo del SIDIL también
+requiere tomar este archivo en consideración.
+</p>
+</div>
+</div>
+<div id="la-matriz-de-predicción-de-riesgo" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> La Matriz de Predicción de Riesgo<a href="elementosgenerales.html#la-matriz-de-predicción-de-riesgo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La Matriz de Predicción de Riesgo (MPR) es un producto crítico del sistema. La MPR es la tabla que reúne el universo actualizado de centros de trabajo disponibles en el DNE (una fila de la matriz por cada centro de trabajo), junto con sus atributos más importantes, los indicadores atribuidos a ellos a partir de la explotación de diferentes fuentes de información, y por supuesto, la predicción de riesgo asociada a ciertas submaterias y una predicción de riesgo general (todo ello en las columnas de la matriz). Es, en esencia, el principal producto del SIDIL previo a la priorización de un subconjunto del universo de CT realizada por quien esté a cargo de la programación de inspecciones.</p>
 <p>La MPR es un punto crítico porque:</p>
 <ol style="list-style-type: decimal">
@@ -527,6 +573,8 @@ Ilustración 3.3: Organización básica de las principales carpetas
 <li><p>Junto con los metadatos asociados a la MPR, es el único insumo imprescindible para el funcionamiento de la interfaz de consulta.</p></li>
 <li><p>Contiene toda la información que, a través de filtros y consultas, permitirá generar los universos susceptibles de ser inspeccionados, priorizados por riesgo de incumplimiento en las diferentes submaterias.</p></li>
 </ol>
+<p><mark>@<span class="citation">@idea</span> capsula:
+breve tour por una MPR mostrando que el nro de filas depende del número de CT activos en MPR, y los diferentes tipos de columnas que hay y como se relacionan estos con los catalogos de campos_DNE y cat_indicadores</mark></p>
 
 </div>
 </div>
@@ -543,7 +591,7 @@ Ilustración 3.3: Organización básica de las principales carpetas
         </div>
       </div>
 <a href="estructura-y-flujos-de-trabajo-del-sidil.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="procesamiento.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="presentación-sintética-de-todos-los-scripts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -557,7 +605,17 @@ Ilustración 3.3: Organización básica de las principales carpetas
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": null,
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
 "fontsettings": {
 "theme": "white",
 "family": "sans",
@@ -575,7 +633,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["bookdownproj.none"],
 "search": {
 "engine": "fuse",
 "options": null
@@ -588,20 +646,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

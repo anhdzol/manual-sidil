@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>SIDIL: Manual del procesamiento y explotación de la información</title>
-  <meta name="description" content="SIDIL: Manual del procesamiento y explotación de la información" />
+  <meta name="description" content="Breve descripcion pendiente" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="SIDIL: Manual del procesamiento y explotación de la información" />
   <meta property="og:type" content="book" />
   
-  
-  <meta name="github-repo" content="https://anhdzol.github.io/testsidil/" />
+  <meta property="og:description" content="Breve descripcion pendiente" />
+  <meta name="github-repo" content="anhdzol/testsidil/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="SIDIL: Manual del procesamiento y explotación de la información" />
   
-  
+  <meta name="twitter:description" content="Breve descripcion pendiente" />
   
 
 <meta name="author" content="American Institutes for Research" />
@@ -51,13 +51,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -162,6 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIexplicaciongeneral"><i class="fa fa-check"></i>Módulo I: actualización de indicadores</a></li>
 <li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIIexplicaciongeneral"><i class="fa fa-check"></i>Módulo II: Consulta al universo de CT, imputación de indicadores y predicción de riesgo</a></li>
 <li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIyIIexplicaciongeneral"><i class="fa fa-check"></i>Módulos I y II: operables desde la interfaz de automatización</a></li>
+<li class="chapter" data-level="2.2.1" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#módulo-iii-consulta-de-la-mpr-para-priorización-de-ct-a-inspeccionar"><i class="fa fa-check"></i><b>2.2.1</b> Módulo III: Consulta de la MPR para priorización de CT a inspeccionar</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="elementosgenerales.html"><a href="elementosgenerales.html"><i class="fa fa-check"></i><b>3</b> Elementos generales del procesamiento de datos</a>
@@ -182,58 +178,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="elementosgenerales.html"><a href="elementosgenerales.html#software-para-el-procesamiento-de-datos"><i class="fa fa-check"></i><b>3.6</b> Software para el procesamiento de datos</a></li>
 <li class="chapter" data-level="3.7" data-path="elementosgenerales.html"><a href="elementosgenerales.html#catalogos"><i class="fa fa-check"></i><b>3.7</b> Catálogos de información</a></li>
+<li class="chapter" data-level="3.8" data-path="elementosgenerales.html"><a href="elementosgenerales.html#la-matriz-de-predicción-de-riesgo"><i class="fa fa-check"></i><b>3.8</b> La Matriz de Predicción de Riesgo</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="procesamiento.html"><a href="procesamiento.html"><i class="fa fa-check"></i><b>4</b> Procesamiento de las fuentes de información y generación de la MPR</a>
+<li class="chapter" data-level="4" data-path="presentación-sintética-de-todos-los-scripts.html"><a href="presentación-sintética-de-todos-los-scripts.html"><i class="fa fa-check"></i><b>4</b> Presentación sintética de todos los scripts</a></li>
+<li class="chapter" data-level="5" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html"><i class="fa fa-check"></i><b>5</b> R, RStudio y Python</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModI"><i class="fa fa-check"></i><b>4.1</b> Módulo I: actualización de indicadores</a>
+<li class="chapter" data-level="5.1" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#r-y-rstudio"><i class="fa fa-check"></i><b>5.1</b> R y RStudio</a></li>
+<li class="chapter" data-level="5.2" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#el-entorno-de-rstudio"><i class="fa fa-check"></i><b>5.2</b> El entorno de RStudio</a></li>
+<li class="chapter" data-level="5.3" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#procedimiento-para-ejecutar-proyectos-y-scripts-en-rstudio"><i class="fa fa-check"></i><b>5.3</b> Procedimiento para ejecutar proyectos y scripts en RStudio</a></li>
+<li class="chapter" data-level="5.4" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#tipos-de-errores-que-se-pudieran-presentar"><i class="fa fa-check"></i><b>5.4</b> Tipos de errores que se pudieran presentar</a></li>
+<li class="chapter" data-level="5.5" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#python"><i class="fa fa-check"></i><b>5.5</b> Python</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="especificaciones-del-servidor.html"><a href="especificaciones-del-servidor.html"><i class="fa fa-check"></i><b>6</b> Especificaciones del servidor</a></li>
+<li class="chapter" data-level="7" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html"><i class="fa fa-check"></i><b>7</b> Conceptos y hallazgos clave en la exploración del SIAPI-SIPAS</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIdesafios"><i class="fa fa-check"></i><b>4.1.1</b> Desafíos al tratamiento de bases de datos externas</a></li>
-<li class="chapter" data-level="4.1.2" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModInivelesagregacion"><i class="fa fa-check"></i><b>4.1.2</b> Sobre niveles de agregación</a></li>
-<li class="chapter" data-level="4.1.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModInominativo"><i class="fa fa-check"></i><b>4.1.3</b> Sobre estimaciones puntuales nominativas</a></li>
-<li class="chapter" data-level="4.1.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModEspecificaciones"><i class="fa fa-check"></i><b>4.1.4</b> Especificaciones por fuente de información</a></li>
-<li class="chapter" data-level="4.1.5" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIcoyvshist"><i class="fa fa-check"></i><b>4.1.5</b> Estimaciones puntuales e históricas de indicadores</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="procesamiento.html"><a href="procesamiento.html#moduloii"><i class="fa fa-check"></i><b>4.2</b> Módulo II: imputación de indicadores y generación de la MPR</a>
+<li class="chapter" data-level="7.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#conceptos-y-clasificaciones-relevantes."><i class="fa fa-check"></i><b>7.1</b> Conceptos y clasificaciones relevantes.</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="procesamiento.html"><a href="procesamiento.html#propositomoduloii"><i class="fa fa-check"></i><b>4.2.1</b> Propósito principal</a></li>
-<li class="chapter" data-level="4.2.2" data-path="procesamiento.html"><a href="procesamiento.html#requisitosmoduloii"><i class="fa fa-check"></i><b>4.2.2</b> Requisitos para la ejecución de este módulo</a></li>
-<li class="chapter" data-level="4.2.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIimputacion"><i class="fa fa-check"></i><b>4.2.3</b> Imputación de indicadores laborales al universo de CT</a></li>
-<li class="chapter" data-level="4.2.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIprediccion"><i class="fa fa-check"></i><b>4.2.4</b> Predicción de riesgo</a></li>
+<li class="chapter" data-level="7.1.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#planeación-de-la-inspección"><i class="fa fa-check"></i><b>7.1.1</b> Planeación de la inspección</a></li>
+<li class="chapter" data-level="7.1.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#meta-y-realización-de-inspecciones-a-realizar-por-tipo-estado-y-por-oficina"><i class="fa fa-check"></i><b>7.1.2</b> Meta y realización de inspecciones a realizar por tipo, estado y por oficina</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIyIIinterfazAuto"><i class="fa fa-check"></i><b>4.3</b> Interfaz de automatización: Módulos I y II</a>
+<li class="chapter" data-level="7.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#alcance-de-la-inspección"><i class="fa fa-check"></i><b>7.2</b> Alcance de la inspección</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="procesamiento.html"><a href="procesamiento.html#propositointerfaz1"><i class="fa fa-check"></i><b>4.3.1</b> Propósito de la interfaz</a></li>
-<li class="chapter" data-level="4.3.2" data-path="procesamiento.html"><a href="procesamiento.html#accesointerfaz1"><i class="fa fa-check"></i><b>4.3.2</b> Acceso a la interfaz</a></li>
-<li class="chapter" data-level="4.3.3" data-path="procesamiento.html"><a href="procesamiento.html#organizacioninterfaz1"><i class="fa fa-check"></i><b>4.3.3</b> Organización de la interfaz</a></li>
-<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz1-8"><i class="fa fa-check"></i>Procesamiento de información</a></li>
+<li class="chapter" data-level="7.2.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#criterios-de-selección-utilizados-antes-del-sidil."><i class="fa fa-check"></i><b>7.2.1</b> Criterios de selección utilizados antes del SIDIL.</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIIinterfazConsulta"><i class="fa fa-check"></i><b>4.4</b> Módulo III: Priorización de los centros de trabajo</a>
+<li class="chapter" data-level="7.3" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#aspectos-pendientes-y-posibles-extensiones-a-futuro"><i class="fa fa-check"></i><b>7.3</b> Aspectos pendientes y posibles extensiones a futuro</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="procesamiento.html"><a href="procesamiento.html#propositointerfaz2"><i class="fa fa-check"></i><b>4.4.1</b> Propósito de la interfaz</a></li>
-<li class="chapter" data-level="4.4.2" data-path="procesamiento.html"><a href="procesamiento.html#accesointerfaz2"><i class="fa fa-check"></i><b>4.4.2</b> Acceso a la interfaz</a></li>
-<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-1"><i class="fa fa-check"></i>Primera prestaña: Filtrado</a></li>
-<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-3"><i class="fa fa-check"></i>Segunda pestaña: Analisis</a></li>
-<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-4"><i class="fa fa-check"></i>Tabla final de resultados con sus pestañas</a></li>
+<li class="chapter" data-level="7.3.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#limitaciones-en-la-construcción-de-la-variable-dependiente"><i class="fa fa-check"></i><b>7.3.1</b> Limitaciones en la construcción de la variable dependiente</a></li>
+<li class="chapter" data-level="7.3.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#posibles-alternativas-como-variable-dependiente"><i class="fa fa-check"></i><b>7.3.2</b> Posibles alternativas como variable dependiente</a></li>
+<li class="chapter" data-level="7.3.3" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#section"><i class="fa fa-check"></i><b>7.3.3</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIV"><i class="fa fa-check"></i><b>4.5</b> Módulo IV: Entrenamiento del modelo</a>
+</ul></li>
+<li class="chapter" data-level="8" data-path="box-and-tables.html"><a href="box-and-tables.html"><i class="fa fa-check"></i><b>8</b> Box and tables</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="procesamiento.html"><a href="procesamiento.html#propositoModIV"><i class="fa fa-check"></i><b>4.5.1</b> Propósito principal</a></li>
-<li class="chapter" data-level="4.5.2" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVSIAPI"><i class="fa fa-check"></i><b>4.5.2</b> Construcción de la serie histórica de inspecciones laborales (2012-2022)</a></li>
-<li class="chapter" data-level="4.5.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVindicadores"><i class="fa fa-check"></i><b>4.5.3</b> Construcción de la serie histórica de indicadores laborales</a></li>
-<li class="chapter" data-level="4.5.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVmatching"><i class="fa fa-check"></i><b>4.5.4</b> Matching de las series históricas</a></li>
-<li class="chapter" data-level="4.5.5" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVEntrenamiento"><i class="fa fa-check"></i><b>4.5.5</b> Entrenamiento y evaluación del modelo de predicción</a></li>
+<li class="chapter" data-level="8.0.1" data-path="box-and-tables.html"><a href="box-and-tables.html#tablas"><i class="fa fa-check"></i><b>8.0.1</b> Tablas</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="presentación-sintética-de-todos-los-scripts.html"><a href="presentación-sintética-de-todos-los-scripts.html"><i class="fa fa-check"></i><b>5</b> Presentación sintética de todos los scripts</a></li>
-<li class="chapter" data-level="6" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html"><i class="fa fa-check"></i><b>6</b> R, RStudio y Python</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#r-y-rstudio"><i class="fa fa-check"></i><b>6.1</b> R y RStudio</a></li>
-<li class="chapter" data-level="6.2" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#el-entorno-de-rstudio"><i class="fa fa-check"></i><b>6.2</b> El entorno de RStudio</a></li>
-<li class="chapter" data-level="6.3" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#procedimiento-para-ejecutar-proyectos-y-scripts-en-rstudio"><i class="fa fa-check"></i><b>6.3</b> Procedimiento para ejecutar proyectos y scripts en RStudio</a></li>
-<li class="chapter" data-level="6.4" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#tipos-de-errores-que-se-pudieran-presentar"><i class="fa fa-check"></i><b>6.4</b> Tipos de errores que se pudieran presentar</a></li>
-<li class="chapter" data-level="6.5" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#python"><i class="fa fa-check"></i><b>6.5</b> Python</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="especificaciones-del-servidor.html"><a href="especificaciones-del-servidor.html"><i class="fa fa-check"></i><b>7</b> Especificaciones del servidor</a></li>
 </ul>
 
       </nav>
@@ -267,10 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Así, el Sistema de Inteligencia de Datos para la Inspección Laboral (SIDIL) que aquí se presenta es una herramienta tecnológica que explota diversas fuentes de información para generar una predicción de incumplimiento a la normativa laboral en los centros de trabajo (CT) susceptibles de ser inspeccionados por la Secretaría del Trabajo y Previsión Social del Gobierno de México. El SIDIL permite a la STPS aplicar estrategias inteligentes de inspección laboral a partir de la generación de subconjuntos de empresas y CT con base en criterios preestablecidos que reflejan su perfil de riesgo de incumplimiento de los derechos laborales. A tal efecto, como se explica más adelante, el SIDIL explota más de un millón de inspecciones registradas y más de 35 millones de estimaciones puntuales a diferentes niveles de agregación, para predecir el riesgo en un universo siempre dinámico de CT registrados en el Directorio Nacional de Empresas (DNE), independientemente de que éstos tengan o no antecedentes de inspección.</p>
 <p>El SIDIL fue desarrollado por American Institutes for Research (AIR) en colaboración con la STPS y en el marco del proyecto de Cumplimiento con el Derecho Laboral en el Sector de Autopartes (CALLE, por sus siglas en inglés). AIR busca apoyar a la STPS y otras autoridades competentes en materia laboral en el desarrollo de procesos y herramientas que permitan el incremento en la eficiencia y eficacia de las funciones relativas a la aplicación de la ley laboral en el sector de autopartes de México, así como en el fortalecimiento de la implementación de la Reforma Constitucional en materia de Justicia Laboral (realizada en 2017) y la Reforma de la Ley Federal del Trabajo (del 1 de mayo 2019).</p>
 <p>El SIDIL responde a la necesidad de hacer un uso eficiente y eficaz de los recursos públicos a través de la focalización de los universos de las inspecciones y al propósito de realizar una mejor cobertura de los diferentes tipos de riesgos laborales, a la no repetición de inspecciones y a la priorización de CT con mayor probabilidad de incumplimiento, entre otros aspectos relativos a la eficiencia y eficacia de las inspecciones laborales.</p>
-<p>En los primeros meses de este proyecto el equipo se abocó al entendimiento, descripción y explotación de los registros administrativos del proceso de inspección y sanción. Dicho trabajó concluyó de manera preliminar en un documento de hallazgos, cuyos principales resultados fueron presentados a la STPS.</p>
-<p>[[pendiente definir sobre:</p>
-<p><a href="https://msair.sharepoint.com/:w:/r/sites/Impaq_Projects/Mexico/CALLE/Ongoing%20Tasks/Data%20Intelligence/Data%20Analysis/2022-01%20An%C3%A1lisis%20SIAPI_SIPAS%20-%20Hallazgos.docx?d=wf74a0d86ad244c92a86c8a88e3af6f1e&amp;csf=1&amp;web=1&amp;e=GcTmkv">DOCUMENTO DE HALLAZGOS</a>
-]]</p>
+<p>En los primeros meses de este proyecto el equipo se abocó al entendimiento, descripción y explotación de los registros administrativos del proceso de inspección y sanción. Dicho trabajó concluyó de manera preliminar en un documento de hallazgos, cuyos principales resultados fueron presentados a la STPS. Algunos de ellos se presentan en el <a href="anexoHallazgos.html#anexoHallazgos">anexo correspondiente</a>.</p>
 <p>En cuanto a los temas técnicos, abordar el reto de seleccionar empresas de alto riesgo mediante el uso de la analítica de datos resulta adecuado para los algoritmos de aprendizaje automático, ya que se cuenta con una masa crítica de información para procesar. A lo largo de este proyecto el equipo de AIR se abocó al análisis de datos, la incorporación de fuentes de información, su relacionamiento, la definición de indicadores, la generación y entrenamiento de modelos estadísticos para la predicción de riesgo y el desarrollo de un poderoso sistema de información, que se presenta a detalle a lo largo de este documento.</p>
 <div id="introalineacion" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Alineación con la misión y programas de gobierno<a href="index.html#introalineacion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -283,13 +258,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fortalecer los mecanismos de inspección a través de la vinculación con otros entes gubernamentales, para el intercambio de información con el objeto de vigilar el marco normativo en materia de subcontratación y subregistro.</li>
 </ul>
 <p>Por su parte la Estrategia Digital Nacional (EDN) centra su razón de ser en la necesidad de orientar el uso y el desarrollo de las TIC al bienestar del pueblo mexicano con una visión humanista del uso de las tecnologías y guardando estrictamente los principios de austeridad republicana, transparencia, privilegiando lo público y el uso o desarrollo nacional de tecnologías de acceso abierto […] Visión: Un país digitalizado y un gobierno austero, honesto y transparente, con autonomía e independencia tecnológicas, centrado en las necesidades ciudadanas, principalmente de los más pobres.</p>
-<p>Entre sus Líneas de acción figuran:
-* Definir elementos técnicos y normativos clave para la contratación o desarrollo de soluciones tecnológicas propias, de acceso abierto.
-* Fomentar el desarrollo de sistemas de información gubernamentales propios y de acceso abierto que se compartan entre Instituciones.
-* Priorizar el uso de Software Libre y estándares abiertos.
-* Promover el intercambio de información entre Instituciones para la simplificación de trámites y servicios a la ciudadanía.
-* Impulsar la integración de bases de datos institucionales que concentren, compartan y estandaricen la información de los sistemas gubernamentales.
-* Promover el uso y aprovechamiento de las bases de datos institucionales.</p>
+<p>Entre sus Líneas de acción figuran:</p>
+<ul>
+<li>Definir elementos técnicos y normativos clave para la contratación o desarrollo de soluciones tecnológicas propias, de acceso abierto.</li>
+<li>Fomentar el desarrollo de sistemas de información gubernamentales propios y de acceso abierto que se compartan entre Instituciones.</li>
+<li>Priorizar el uso de Software Libre y estándares abiertos.</li>
+<li>Promover el intercambio de información entre Instituciones para la simplificación de trámites y servicios a la ciudadanía.</li>
+<li>Impulsar la integración de bases de datos institucionales que concentren, compartan y estandaricen la información de los sistemas gubernamentales.</li>
+<li>Promover el uso y aprovechamiento de las bases de datos institucionales.</li>
+</ul>
 <p>En cuanto a la inspección laboral, según el marco normativo vigente la STPS tiene entre sus facultades la vigilancia y cumplimiento de la normatividad laboral como se marca en los artículos 540 al 550 de la Ley Federal del Trabajo (LFT), así como el artículo 40 fracción I de la Ley Orgánica de la Administración Pública Federal. Para ejercer estas funciones, la STPS ha implementado el procedimiento de “Inspección del Trabajo”, que lleva a cabo a través de la Dirección General de Inspección Federal del Trabajo supervisando a las Delegaciones Federales del Trabajo, como los responsables operativos.
 Cabe señalar que el proceso de inspección incluye la vigilancia de las normas de trabajo constitucionales, las contenidas en la LFT, sus reglamentos, convenios internacionales, Normas Oficiales Mexicanas (NOMs), y las disposiciones dictadas por la STPS. Otra de las funciones que lleva a cabo la Secretaría, es el Procedimiento Administrativo Sancionador, que determina la existencia de elementos jurídicos para sancionar al centro de trabajo por actos violatorios a la legislación laboral.
 Es entonces en ese marco, tanto sustantivo en términos de la inspección laboral, como en materia de tecnologías y desarrollo de sistemas de información, que se enmarca este proyecto a las prioridades del Gobierno de México.</p>
@@ -319,22 +296,21 @@ Es entonces en ese marco, tanto sustantivo en términos de la inspección labora
 <h2><span class="header-section-number">1.4</span> Propuesta de solución<a href="index.html#propuestasolucion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Buscando fortalecer el objetivo de que desde la inspección laboral se vigile y promueva el cumplimiento de las condiciones laborales de los trabajadores mexicanos en apego al marco regulatorio, se buscó desarrollar una herramienta que permitiera generar estrategias cada vez más inteligentes de inspección, así como analizar su impacto e incidencia en dichas condiciones. En este componente se trabajaron elementos que corresponden al proceso de análisis e inteligencia de datos previos a la inspección: desde la recopilación y procesamiento de fuentes internas y externas de información para la conformación de un repositorio estructurado, el análisis de criterios para establecer riesgo de violaciones laborales de los patrones y la consulta de estos indicadores para la generación de estrategias inteligentes para la inspección laboral basadas en análisis de riesgos de incumplimiento.</p>
 <p>Para abordar el reto de seleccionar empresas de alto riesgo mediante el uso de la analítica de datos debieron desarrollarse herramientas y actividades para la elaboración de criterios de detección de violaciones y desviaciones de las normas laborales, con la formalización de indicadores que de estos criterios, la gestión y procesamiento de información y el desarrollo y la puesta en funcionamiento de herramientas tecnológicas que permitan el almacenamiento de los datos, su explotación y consulta.</p>
-<p><strong>PENDIENTE ELABORAR SOBRE ESTA ILUSTRACIÓN</strong>
-Como muestra la ilustración <a href="index.html#fig:esquemaPPTSalafranca">1.1</a>, ….LOREM IPSUM…</p>
+<p>Como muestra la ilustración <a href="index.html#fig:esquemaPPTSalafranca">1.1</a>, el SIDIL parte del acceso y explotación de diferentes fuentes de información, propiedad de la STPS pero también de otras instituciones de relevancia en materia laboral. A través de un proceso de minería de datos, se genera una matriz de predicción de riesgos. Ésta es explotada por una interfaz de consulta que reduce el universo de CT a un subconjunto de CT que cumplen con ciertos criterios de filtrado y análisis. Así, SIDIL permite la realización de operativos inteligentes que reflejan las prioridades de inspección.</p>
 <div class="figure"><span style="display:block;" id="fig:esquemaPPTSalafranca"></span>
-<img src="images-1/01/esquemaPPTSalafranca.jpg" alt="Presentación esquematizada de la solución"  />
+<img src="images-1/01/esquemaPPTSalafranca.jpg" alt="Presentación esquematizada de la solución" width="50%" />
 <p class="caption">
-Ilustración 1.1: Presentación esquematizada de la solución
+Recuadro 1.1: Presentación esquematizada de la solución
 </p>
 </div>
-<p><strong>LA IMAGEN ANTERIOR REEMPLAZARÍA ESTA OTRA</strong></p>
+<p>[<strong>LA IMAGEN ANTERIOR REEMPLAZARÍA ESTA OTRA</strong> ][.mark]</p>
 <div class="float">
-<img src="images-1/01/ilustracion1.png" alt="Ilustración XXX:" />
-<div class="figcaption">Ilustración XXX:</div>
+<img src="images-1/01/ilustracion1.png" out.width="50%" alt="Ilustración BORRABLE:" />
+<div class="figcaption">Ilustración BORRABLE:</div>
 </div>
 <p>En el esquema anterior se puede observar los componentes básicos de la solución planteada, que tienen que ver con:</p>
 <ul>
-<li><del>La concentración y procesamiento de la información estadística y los estudios especializados que permiten el análisis de las redes y cadenas productivas, del contexto laboral y su caracterización en materia de actividad económica, ocupación, empleo, evolución de los sueldos y salarios, etc.</del></li>
+<li>SUGIERO QUITAR: <mark><del>La concentración y procesamiento de la información estadística y los estudios especializados que permiten el análisis de las redes y cadenas productivas, del contexto laboral y su caracterización en materia de actividad económica, ocupación, empleo, evolución de los sueldos y salarios, etc.</del></mark></li>
 <li>La limpieza, enriquecimiento y relacionamiento de información que se pudo integrar en bases de datos para su análisis. Esta información, como ya se mencionó, proviene tanto de fuentes internas como externas, a través de convenios de colaboración.</li>
 <li>La determinación de los criterios de análisis que buscaron identificar las principales violaciones y que reflejen las prioridades en materia de política pública que deben guiar la inspección del trabajo.</li>
 <li>El desarrollo de las herramientas que, a partir del establecimiento de los criterios mencionados y su descomposición en indicadores, permitieron llevar a cabo análisis basados en algoritmos de analítica, minería de datos y aprendizaje de máquina.</li>
@@ -373,7 +349,17 @@ Ilustración 1.1: Presentación esquematizada de la solución
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": null,
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
 "fontsettings": {
 "theme": "white",
 "family": "sans",
@@ -391,7 +377,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["bookdownproj.none"],
 "search": {
 "engine": "fuse",
 "options": null
@@ -404,20 +390,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

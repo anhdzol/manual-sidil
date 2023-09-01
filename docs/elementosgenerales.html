@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 3 Elementos generales del procesamiento de datos | SIDIL: Manual del procesamiento y explotación de la información</title>
   <meta name="description" content="Breve descripcion pendiente" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 3 Elementos generales del procesamiento de datos | SIDIL: Manual del procesamiento y explotación de la información" />
   <meta property="og:type" content="book" />
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="estructura-y-flujos-de-trabajo-del-sidil.html"/>
-<link rel="next" href="presentación-sintética-de-todos-los-scripts.html"/>
+<link rel="next" href="procesamiento.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +51,18 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -141,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Manual de procesamiento y explotación de información</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bienvenida</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introalineacion"><i class="fa fa-check"></i><b>1.1</b> Alineación con la misión y programas de gobierno</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#introjustificacion"><i class="fa fa-check"></i><b>1.2</b> Justificación de la viabilidad del proyecto</a></li>
@@ -156,8 +166,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIexplicaciongeneral"><i class="fa fa-check"></i>Módulo I: actualización de indicadores</a></li>
 <li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIIexplicaciongeneral"><i class="fa fa-check"></i>Módulo II: Consulta al universo de CT, imputación de indicadores y predicción de riesgo</a></li>
-<li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIyIIexplicaciongeneral"><i class="fa fa-check"></i>Módulos I y II: operables desde la interfaz de automatización</a></li>
-<li class="chapter" data-level="2.2.1" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#módulo-iii-consulta-de-la-mpr-para-priorización-de-ct-a-inspeccionar"><i class="fa fa-check"></i><b>2.2.1</b> Módulo III: Consulta de la MPR para priorización de CT a inspeccionar</a></li>
+<li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIIIConsultaMPR"><i class="fa fa-check"></i>Módulo III: Consulta de la MPR para priorización de CT a inspeccionar</a></li>
+<li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIVEntrenamientoModelo"><i class="fa fa-check"></i>Módulo IV: Entrenamiento del modelo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="elementosgenerales.html"><a href="elementosgenerales.html"><i class="fa fa-check"></i><b>3</b> Elementos generales del procesamiento de datos</a>
@@ -172,45 +182,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="elementosgenerales.html"><a href="elementosgenerales.html#trazabilidad"><i class="fa fa-check"></i><b>3.4</b> Sobre trazabilidad: bitácora, log y parámetros</a></li>
 <li class="chapter" data-level="3.5" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesGeneral"><i class="fa fa-check"></i><b>3.5</b> Mensajes al usuario</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesError"><i class="fa fa-check"></i><b>3.5.1</b> Mensajes de error</a></li>
-<li class="chapter" data-level="3.5.2" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesAdvertencia"><i class="fa fa-check"></i><b>3.5.2</b> Mensajes de advertencia</a></li>
-<li class="chapter" data-level="3.5.3" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesConfirmacion"><i class="fa fa-check"></i><b>3.5.3</b> Mensajes de información o de confirmación</a></li>
+<li class="chapter" data-level="3.5.1" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesError.unnumbered"><i class="fa fa-check"></i><b>3.5.1</b> Mensajes de error</a></li>
+<li class="chapter" data-level="3.5.2" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesAdvertencia.unnumbered"><i class="fa fa-check"></i><b>3.5.2</b> Mensajes de advertencia</a></li>
+<li class="chapter" data-level="3.5.3" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesConfirmacion.unnumbered"><i class="fa fa-check"></i><b>3.5.3</b> Mensajes de información o de confirmación</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="elementosgenerales.html"><a href="elementosgenerales.html#software-para-el-procesamiento-de-datos"><i class="fa fa-check"></i><b>3.6</b> Software para el procesamiento de datos</a></li>
 <li class="chapter" data-level="3.7" data-path="elementosgenerales.html"><a href="elementosgenerales.html#catalogos"><i class="fa fa-check"></i><b>3.7</b> Catálogos de información</a></li>
 <li class="chapter" data-level="3.8" data-path="elementosgenerales.html"><a href="elementosgenerales.html#la-matriz-de-predicción-de-riesgo"><i class="fa fa-check"></i><b>3.8</b> La Matriz de Predicción de Riesgo</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="presentación-sintética-de-todos-los-scripts.html"><a href="presentación-sintética-de-todos-los-scripts.html"><i class="fa fa-check"></i><b>4</b> Presentación sintética de todos los scripts</a></li>
-<li class="chapter" data-level="5" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html"><i class="fa fa-check"></i><b>5</b> R, RStudio y Python</a>
+<li class="chapter" data-level="4" data-path="procesamiento.html"><a href="procesamiento.html"><i class="fa fa-check"></i><b>4</b> Procesamiento de las fuentes de información y generación de la MPR</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#r-y-rstudio"><i class="fa fa-check"></i><b>5.1</b> R y RStudio</a></li>
-<li class="chapter" data-level="5.2" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#el-entorno-de-rstudio"><i class="fa fa-check"></i><b>5.2</b> El entorno de RStudio</a></li>
-<li class="chapter" data-level="5.3" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#procedimiento-para-ejecutar-proyectos-y-scripts-en-rstudio"><i class="fa fa-check"></i><b>5.3</b> Procedimiento para ejecutar proyectos y scripts en RStudio</a></li>
-<li class="chapter" data-level="5.4" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#tipos-de-errores-que-se-pudieran-presentar"><i class="fa fa-check"></i><b>5.4</b> Tipos de errores que se pudieran presentar</a></li>
-<li class="chapter" data-level="5.5" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#python"><i class="fa fa-check"></i><b>5.5</b> Python</a></li>
+<li class="chapter" data-level="4.1" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModI"><i class="fa fa-check"></i><b>4.1</b> Módulo I: actualización de indicadores</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIdesafios"><i class="fa fa-check"></i><b>4.1.1</b> Desafíos al tratamiento de bases de datos externas</a></li>
+<li class="chapter" data-level="4.1.2" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModInivelesagregacion"><i class="fa fa-check"></i><b>4.1.2</b> Sobre niveles de agregación</a></li>
+<li class="chapter" data-level="4.1.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModInominativo"><i class="fa fa-check"></i><b>4.1.3</b> Sobre estimaciones puntuales nominativas</a></li>
+<li class="chapter" data-level="4.1.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModEspecificaciones"><i class="fa fa-check"></i><b>4.1.4</b> Especificaciones por fuente de información</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="especificaciones-del-servidor.html"><a href="especificaciones-del-servidor.html"><i class="fa fa-check"></i><b>6</b> Especificaciones del servidor</a></li>
-<li class="chapter" data-level="7" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html"><i class="fa fa-check"></i><b>7</b> Conceptos y hallazgos clave en la exploración del SIAPI-SIPAS</a>
+<li class="chapter" data-level="4.2" data-path="procesamiento.html"><a href="procesamiento.html#moduloii"><i class="fa fa-check"></i><b>4.2</b> Módulo II: imputación de indicadores y generación de la MPR</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#conceptos-y-clasificaciones-relevantes."><i class="fa fa-check"></i><b>7.1</b> Conceptos y clasificaciones relevantes.</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#planeación-de-la-inspección"><i class="fa fa-check"></i><b>7.1.1</b> Planeación de la inspección</a></li>
-<li class="chapter" data-level="7.1.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#meta-y-realización-de-inspecciones-a-realizar-por-tipo-estado-y-por-oficina"><i class="fa fa-check"></i><b>7.1.2</b> Meta y realización de inspecciones a realizar por tipo, estado y por oficina</a></li>
+<li class="chapter" data-level="4.2.1" data-path="procesamiento.html"><a href="procesamiento.html#propositomoduloii"><i class="fa fa-check"></i><b>4.2.1</b> Propósito principal</a></li>
+<li class="chapter" data-level="4.2.2" data-path="procesamiento.html"><a href="procesamiento.html#requisitosmoduloii"><i class="fa fa-check"></i><b>4.2.2</b> Requisitos para la ejecución de este módulo</a></li>
+<li class="chapter" data-level="4.2.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIimputacion"><i class="fa fa-check"></i><b>4.2.3</b> Imputación de indicadores laborales al universo de CT</a></li>
+<li class="chapter" data-level="4.2.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIprediccion"><i class="fa fa-check"></i><b>4.2.4</b> Predicción de riesgo</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#alcance-de-la-inspección"><i class="fa fa-check"></i><b>7.2</b> Alcance de la inspección</a>
+<li class="chapter" data-level="4.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIyIIinterfazAuto"><i class="fa fa-check"></i><b>4.3</b> Interfaz de automatización: Módulos I y II</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#criterios-de-selección-utilizados-antes-del-sidil."><i class="fa fa-check"></i><b>7.2.1</b> Criterios de selección utilizados antes del SIDIL.</a></li>
+<li class="chapter" data-level="4.3.1" data-path="procesamiento.html"><a href="procesamiento.html#propositointerfaz1"><i class="fa fa-check"></i><b>4.3.1</b> Propósito de la interfaz</a></li>
+<li class="chapter" data-level="4.3.2" data-path="procesamiento.html"><a href="procesamiento.html#accesointerfaz1"><i class="fa fa-check"></i><b>4.3.2</b> Acceso a la interfaz</a></li>
+<li class="chapter" data-level="4.3.3" data-path="procesamiento.html"><a href="procesamiento.html#organizacioninterfaz1"><i class="fa fa-check"></i><b>4.3.3</b> Organización de la interfaz</a></li>
+<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz1-8"><i class="fa fa-check"></i>Procesamiento de información</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#aspectos-pendientes-y-posibles-extensiones-a-futuro"><i class="fa fa-check"></i><b>7.3</b> Aspectos pendientes y posibles extensiones a futuro</a>
+<li class="chapter" data-level="4.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIIinterfazConsulta"><i class="fa fa-check"></i><b>4.4</b> Módulo III: Priorización de los centros de trabajo</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#limitaciones-en-la-construcción-de-la-variable-dependiente"><i class="fa fa-check"></i><b>7.3.1</b> Limitaciones en la construcción de la variable dependiente</a></li>
-<li class="chapter" data-level="7.3.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#posibles-alternativas-como-variable-dependiente"><i class="fa fa-check"></i><b>7.3.2</b> Posibles alternativas como variable dependiente</a></li>
-<li class="chapter" data-level="7.3.3" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#section"><i class="fa fa-check"></i><b>7.3.3</b> </a></li>
+<li class="chapter" data-level="4.4.1" data-path="procesamiento.html"><a href="procesamiento.html#propositointerfaz2"><i class="fa fa-check"></i><b>4.4.1</b> Propósito de la interfaz</a></li>
+<li class="chapter" data-level="4.4.2" data-path="procesamiento.html"><a href="procesamiento.html#accesointerfaz2"><i class="fa fa-check"></i><b>4.4.2</b> Acceso a la interfaz</a></li>
+<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-1"><i class="fa fa-check"></i>Primera prestaña: Filtrado</a></li>
+<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-3"><i class="fa fa-check"></i>Segunda pestaña: Analisis</a></li>
+<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-4"><i class="fa fa-check"></i>Tabla final de resultados con sus pestañas</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="box-and-tables.html"><a href="box-and-tables.html"><i class="fa fa-check"></i><b>8</b> Box and tables</a>
+<li class="chapter" data-level="4.5" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIV"><i class="fa fa-check"></i><b>4.5</b> Módulo IV: Entrenamiento del modelo</a>
 <ul>
-<li class="chapter" data-level="8.0.1" data-path="box-and-tables.html"><a href="box-and-tables.html#tablas"><i class="fa fa-check"></i><b>8.0.1</b> Tablas</a></li>
+<li class="chapter" data-level="4.5.1" data-path="procesamiento.html"><a href="procesamiento.html#propositoModIV"><i class="fa fa-check"></i><b>4.5.1</b> Propósito principal</a></li>
+<li class="chapter" data-level="4.5.2" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVSIAPI"><i class="fa fa-check"></i><b>4.5.2</b> Construcción de la serie histórica de inspecciones laborales (2012-2022)</a></li>
+<li class="chapter" data-level="4.5.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVindicadores"><i class="fa fa-check"></i><b>4.5.3</b> Construcción de la serie histórica de indicadores laborales</a></li>
+<li class="chapter" data-level="4.5.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVmatching"><i class="fa fa-check"></i><b>4.5.4</b> Matching de las series históricas</a></li>
+<li class="chapter" data-level="4.5.5" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVEntrenamiento"><i class="fa fa-check"></i><b>4.5.5</b> Entrenamiento y evaluación del modelo de predicción</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="anexotablascripts.html"><a href="anexotablascripts.html"><i class="fa fa-check"></i><b>5</b> Anexo: Presentación sintética de todos los scripts</a></li>
+<li class="chapter" data-level="6" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html"><i class="fa fa-check"></i><b>6</b> Anexo: R, RStudio y Python</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html#r-y-rstudio"><i class="fa fa-check"></i><b>6.1</b> R y RStudio</a></li>
+<li class="chapter" data-level="6.2" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html#el-entorno-de-rstudio"><i class="fa fa-check"></i><b>6.2</b> El entorno de RStudio</a></li>
+<li class="chapter" data-level="6.3" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html#procedimiento-para-ejecutar-proyectos-y-scripts-en-rstudio"><i class="fa fa-check"></i><b>6.3</b> Procedimiento para ejecutar proyectos y scripts en RStudio</a></li>
+<li class="chapter" data-level="6.4" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html#tipos-de-errores-que-se-pudieran-presentar"><i class="fa fa-check"></i><b>6.4</b> Tipos de errores que se pudieran presentar</a></li>
+<li class="chapter" data-level="6.5" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html#python"><i class="fa fa-check"></i><b>6.5</b> Python</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><i class="fa fa-check"></i><b>7</b> Anexo: Especificaciones técnicas y manual de instalación del servidor</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html#especificaciones-técnicas"><i class="fa fa-check"></i><b>7.1</b> Especificaciones técnicas</a></li>
+<li class="chapter" data-level="7.2" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html#manual-de-instalación"><i class="fa fa-check"></i><b>7.2</b> Manual de instalación</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html#preliminares-de-instalación"><i class="fa fa-check"></i><b>7.2.1</b> Preliminares de instalación</a></li>
+<li class="chapter" data-level="7.2.2" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html#instalación-de-programas"><i class="fa fa-check"></i><b>7.2.2</b> Instalación de programas</a></li>
+<li class="chapter" data-level="7.2.3" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html#instalación-del-sidil"><i class="fa fa-check"></i><b>7.2.3</b> Instalación del SIDIL</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html"><i class="fa fa-check"></i><b>8</b> Anexo: Conceptos y hallazgos clave en la exploración del SIAPI-SIPAS</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#conceptos-y-clasificaciones-relevantes."><i class="fa fa-check"></i><b>8.1</b> Conceptos y clasificaciones relevantes.</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#planeación-de-la-inspección"><i class="fa fa-check"></i><b>8.1.1</b> Planeación de la inspección</a></li>
+<li class="chapter" data-level="8.1.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#meta-y-realización-de-inspecciones-a-realizar-por-tipo-estado-y-por-oficina"><i class="fa fa-check"></i><b>8.1.2</b> Meta y realización de inspecciones a realizar por tipo, estado y por oficina</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#alcance-de-la-inspección"><i class="fa fa-check"></i><b>8.2</b> Alcance de la inspección</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#criterios-de-selección-utilizados-antes-del-sidil."><i class="fa fa-check"></i><b>8.2.1</b> Criterios de selección utilizados antes del SIDIL.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="videos.html"><a href="videos.html"><i class="fa fa-check"></i><b>9</b> Anexo: Videos de transferencia de conocimiento</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="videos.html"><a href="videos.html#sesion1"><i class="fa fa-check"></i><b>9.1</b> Sesión 1</a></li>
+<li class="chapter" data-level="9.2" data-path="videos.html"><a href="videos.html#sesion2"><i class="fa fa-check"></i><b>9.2</b> Sesión 2</a></li>
+<li class="chapter" data-level="9.3" data-path="videos.html"><a href="videos.html#sesion3"><i class="fa fa-check"></i><b>9.3</b> Sesión 3</a></li>
+<li class="chapter" data-level="9.4" data-path="videos.html"><a href="videos.html#sesion4"><i class="fa fa-check"></i><b>9.4</b> Sesión 4</a></li>
+<li class="chapter" data-level="9.5" data-path="videos.html"><a href="videos.html#sesion5"><i class="fa fa-check"></i><b>9.5</b> Sesión 5</a></li>
+<li class="chapter" data-level="9.6" data-path="videos.html"><a href="videos.html#sesion6"><i class="fa fa-check"></i><b>9.6</b> Sesión 6</a></li>
+<li class="chapter" data-level="9.7" data-path="videos.html"><a href="videos.html#sesion7"><i class="fa fa-check"></i><b>9.7</b> Sesión 7</a></li>
+<li class="chapter" data-level="9.8" data-path="videos.html"><a href="videos.html#sesion8"><i class="fa fa-check"></i><b>9.8</b> Sesión 8</a></li>
+<li class="chapter" data-level="9.9" data-path="videos.html"><a href="videos.html#sesion9"><i class="fa fa-check"></i><b>9.9</b> Sesión 9</a></li>
+<li class="chapter" data-level="9.10" data-path="videos.html"><a href="videos.html#sesion10"><i class="fa fa-check"></i><b>9.10</b> Sesión 10</a></li>
+<li class="chapter" data-level="9.11" data-path="videos.html"><a href="videos.html#sesion11"><i class="fa fa-check"></i><b>9.11</b> Sesión 11</a></li>
+<li class="chapter" data-level="9.12" data-path="videos.html"><a href="videos.html#sesion12"><i class="fa fa-check"></i><b>9.12</b> Sesión 12</a></li>
+<li class="chapter" data-level="9.13" data-path="videos.html"><a href="videos.html#sesion13"><i class="fa fa-check"></i><b>9.13</b> Sesión 13</a></li>
 </ul></li>
 </ul>
 
@@ -236,14 +301,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Para el desarrollo de todas las funciones del SIDIL se utilizan instrucciones de manejo de datos en diferentes lenguajes de programación que permiten la carga, transformación, procesamiento, generación y guardado de información. Todos estos procesos, para fines prácticos se han dividido en una serie de “scripts”, esto es de paquetes de instrucciones que se corren para lograr un fin determinado.</p>
 <p>Típicamente, en cada script se incluyen múltiples instrucciones al procesador, entre las que destacan la lectura de archivos, la manipulación de variables, la definición de parámetros, etc. Es buena práctica dividir los scripts por conjuntos de tareas. La delimitación exacta no obedece a una regla determinada que es independiente del contexto. Dicho de otra forma, depende de cada proyecto cómo se agrupan las diferentes instrucciones en diferentes scripts.</p>
 <p>En coordinación con la STPS, al interior de cada módulo se dividieron las instrucciones en los siguientes grupos de scripts que, en línea general, caracterizan la ejecución de los diferentes procesos a lo largo de los módulos del SIDIL. El criterio principal fue que en los diferentes scripts del SIDIL se dividieran los diferentes procesos de tal forma que se refleje un balance entre minimizar el número de scripts que un usuario debe ejecutar a la vez que se mantiene una coherencia en el contenido y alcance de lo que contengan los respectivos scripts.</p>
-<p>El SIDIL contempla más de 20 diferentes scripts. Los scripts podrían ser clasificados de diversas maneras y muchos de ellos son de un alcance muy específico por lo que la gran mayoría de ellos se presenta específicamente en el contexto de cada módulo, en las secciones posteriores. En el anexo 1 se ofrece una presentación tabular de todos los scripts, siguiendo el módulo y el orden en el que generalmente se utilizan.</p>
+<p>El SIDIL contempla más de 20 diferentes scripts. Los scripts podrían ser clasificados de diversas maneras y muchos de ellos son de un alcance muy específico por lo que la gran mayoría de ellos se presenta específicamente en el contexto de cada módulo, en las secciones posteriores. En la <a href="anexotablascripts.html#anexotablascripts">sección 5</a> se ofrece una presentación tabular de todos los scripts, siguiendo el módulo y el orden en el que generalmente se utilizan.</p>
 <p>Sin embargo, hay dos scripts cuya explicación se realiza en esta sección, dado su carácter más general. Estos son el script de configuración inicial y los scripts secuenciadores, a saber:</p>
 <div id="configinicial" class="section level3 hasAnchor" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Script de configuración inicial y script de funciones y catálogos<a href="elementosgenerales.html#configinicial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Hay un único script de configuración inicial y éste es ejecutado con cada actualización de cualquier módulo, directamente a través de los scripts secuenciadores que se escribieron en lenguaje R.</strong> El script tiene como propósito centralizar en un único lugar las definiciones fundamentales que son homogéneas y consistentes a lo largo de todo el SIDIL. Concentrar toda esta información en un solo lugar facilita el mantenimiento y actualización de la información.</p>
 <p>En concreto, el script de configuración inicial, identificado con el nombre estable de <em>0_config_inicial</em>, ejecuta y define los siguientes aspectos.</p>
 <ul>
-<li><p>Carga de paquetes y librerías (ver Anexo 1: R y RStudio)</p></li>
+<li><p>Carga de paquetes y librerías (ver <a href="#anexoRyRStudio">sección 6. R, RStudio y Python</a>)</p></li>
 <li><p>Generación de carpetas y subcarpetas para el funcionamiento del sistema.</p></li>
 <li><p>Parámetros de ejecución, tales como la fecha y hora de ejecución, características del usuario que ejecuta el proceso, mismo que se presenta a lo largo de este documento.</p></li>
 <li><p><em>PATH</em> o direcciones de enlace o acceso a la información (en caso de que requieran ajustes específicos)</p></li>
@@ -256,48 +321,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><strong>El script de configuración inicial se ejecuta antes de iniciar el procesamiento de cada módulo o proceso en particular</strong>, de manera automática desde los scripts secuenciadores. Esto provee una estructura de información y definición de parámetros armonizada a lo largo de todo el SIDIL, sin importar si se ejecuta uno o varios módulos del sistema.</p>
 <p>El motivo por el cual el script que lee catálogos y define funciones no está directamente contenido en el de configuración inicial reside en que para la ejecución de ciertos procesos en la interfaz de automatización se requiere únicamente la lectura de catálogos y funciones. Sin embargo, no afecta a la conclusión de que el script de configuración inicial es de menester importancia y se ejecuta en todos los procesos del SIDIL que se realizan con R.</p>
-<p><mark>@<span class="citation">@Propuesta</span> de capsula: tour rapido por config inicial y 0 funciones:
-@@ sobre todo importante porque habra cambios importantes para acomodar las apps de las interfaces.
-@<span class="citation">@posiblemente</span> mas o menos por aqui se incorpore todavía un parrafo al respecto</mark></p>
+<!-- [@@Propuesta de capsula: tour rapido por config inicial y 0 funciones: -->
+<!-- @@ sobre todo importante porque habra cambios importantes para acomodar las apps de las interfaces. -->
+<!-- @@posiblemente mas o menos por aqui se incorpore todavía un parrafo al respecto]{.mark} -->
 </div>
 <div id="secuenciadores" class="section level3 hasAnchor" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Scripts secuenciadores<a href="elementosgenerales.html#secuenciadores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Hay once scripts secuenciadores a lo largo del SIDIL, pues su alcance es específico para un proceso determinado dentro de cada módulo.</strong> El propósito es centralizar la ejecución de diversos scripts, asegurando el procesamiento de la información en el orden adecuado, en pro de la coherencia de la información. El script secuenciador llama al procesamiento de otros scripts sin la necesidad de ejecutar cada uno de ellos individualmente.</p>
-<p><strong>Las ventajas de tener un script secuenciador se encuentran en que reducen la atención de una persona a un menor número de scripts para la actualización de ciertas partes de un módulo.</strong> Además, permite que el “aislamiento” de ciertos procesos en scripts muy específicos mantenga una coherencia, toda vez que estos scripts específicos son ejecutados desde el secuenciador, entre otros. Como se observa en la siguiente ilustración, el script secuenciador puede realizar diferentes procesamientos de manera secuencial, por ejemplo, “llamar y ejecutar” el script de configuración inicial, luego realizar lo mismo para otros scripts propios de la fuente de información, a la vez que va generando procesos con la información generada por estos (este tipo de códigos se identifican en la siguiente imagen con los tres puntos (…)).</p>
-<p>Ilustración 4 Presentación genérica de un script secuenciador</p>
-<div class="figure"><span style="display:block;" id="fig:scriptsecuenciador"></span>
-<img src="images-1/02/scriptsecuenciador.png" alt="Presentación esquematizada del funcionamiento de un script secuenciador"  />
-<p class="caption">
-Recuadro 3.1: Presentación esquematizada del funcionamiento de un script secuenciador
-</p>
-</div>
+<p><strong>Las ventajas de tener un script secuenciador se encuentran en que reducen la atención de una persona a un menor número de scripts para la actualización de ciertas partes de un módulo.</strong> Además, permite que el “aislamiento” de ciertos procesos en scripts muy específicos mantenga una coherencia, toda vez que estos scripts específicos son ejecutados desde el secuenciador, entre otros. El script secuenciador puede realizar diferentes procesamientos de manera secuencial, por ejemplo, “llamar y ejecutar” el script de configuración inicial, luego realizar lo mismo para otros scripts propios de la fuente de información, a la vez que va generando procesos con la información generada por estos.</p>
 <p>¿Cuántos scripts secuenciadores existen? El número total asciende a once porque actualmente hay un script secuenciador para la actualización de indicadores de la ENOE, otro para indicadores del IMSS, otro para indicadores del Censo Económico y otro tres para el módulo II, concretamente para consulta al DNE, SIAPI y el matching:</p>
-<p>Módulo I</p>
+<p>Módulo I: explotación de fuentes de información para la actualización de indicadores laborales.</p>
 <ol style="list-style-type: decimal">
-<li><p>Script secuenciador para ENOE</p></li>
-<li><p>Script secuenciador para IMSS</p></li>
-<li><p>Script secuenciador para Censo</p></li>
+<li><p>Script secuenciador para ENOE, mismo que explota la última publicación disponible de esta encuesta para actualizar los indicadores que se obtienen de esta fuente de información (1_secuenciador_ENOE)</p></li>
+<li><p>Script secuenciador para IMSS, mismo que explota los registros administrativos para actualizar los indicadores que se obtienen de esta fuente de información (1_secuenciador_IMSS)</p></li>
+<li><p>Script secuenciador para Censo Económico, mismo que explota la información generada entre DGIET e INEGI (1_secuenciador_CENSO)</p></li>
 </ol>
-<p>Módulo II</p>
+<p>Módulo II: consulta al DNE, imputación de indicadores coyunturales y predicción de riesgo.</p>
 <ol start="4" style="list-style-type: decimal">
-<li><p>Script secuenciador de consulta al DNE</p></li>
-<li><p>Script secuenciador de matching coyuntural</p></li>
-<li><p>Script secuenciador de predicción de riesgo</p></li>
+<li><p>Script secuenciador de consulta al DNE, mismo que genera un universo de CT actualizados según los registros del DNE (2_consulta_DNE)</p></li>
+<li><p>Script secuenciador de matching coyuntural: asocia los indicadores coyunturales a los CT consultados del DNE, fuera por registro patronal (nominativo) o por nivel de agregación (2_matching_coyuntural)</p></li>
+<li><p>Script secuenciador de predicción de riesgo, mismo que recupera el modelo entrenado y lo aplica sobre el universo de CT con sus indicadores coyunturales asociados (2_prediccion)</p></li>
 </ol>
-<p>Módulo IV</p>
+<p>Módulo IV: Entrenamiento del modelo a partir del registro histórico de inspecciones laborales y series históricas de indicadores.</p>
 <ol start="7" style="list-style-type: decimal">
-<li><p>Script secuenciador para ENOE</p></li>
-<li><p>Script secuenciador para IMSS<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p></li>
-<li><p>Script secuenciador de consulta de histórico de inspecciones</p></li>
-<li><p>Script secuenciador de matching histórico</p></li>
-<li><p>Script secuenciador de entrenamiento de modelo</p></li>
+<li><p>Script secuenciador para el cálculo histórico de indicadores obtenidos de la ENOE (4_secuenciador_ENOE)</p></li>
+<li><p>Script secuenciador para el cálculo histórico de indicadores obtenidos de la IMSS (4_secuenciador_IMSS)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p></li>
+<li><p>Script secuenciador de consulta de histórico de inspecciones a nivel submateria (4_secuenciador_inspecciones)</p></li>
+<li><p>Script secuenciador de matching histórico, imputa indicadores históricos a las inspecciones por submateria (4_matching_historico)</p></li>
+<li><p>Script secuenciador de entrenamiento de modelo, mismo que deja el modelo entrenado para utilizarse en la predicción (4_entrenamiento)</p></li>
 </ol>
 <p>En sentido estricto, un análisis más minucioso de los contenidos de este script permitiría sostener que algunos de los scripts arriba definidos como secuenciadores (en el sentido de que organizan el procesamiento de la información recurriendo a otros scripts para la consecución sus objetivos) realmente no tienen esta característica específica de “llamar” a otros scripts, sin embargo, a fines de presentación se simplifica su sistematización llamándolos como tal.</p>
-<p>Así, uniendo los conceptos descritos en este y el anterior apartado, se puede presentar la ilustración <a href="elementosgenerales.html#fig:secConfigInicial">3.2</a> en la que se observa cómo un script secuenciador llama al script de configuración inicial, éste a su vez llama al <em>0_funciones_catalogos</em> para luego a partir de un script de extracción se lamen los inputs para su transformación, y luego, cuando aplique, los scripts del cálculo de los indicadores, para dar con el output final.</p>
+<p>Así, uniendo los conceptos descritos en este y el anterior apartado, se puede presentar la ilustración <a href="elementosgenerales.html#fig:secConfigInicial">3.1</a> en la que se observa cómo un script secuenciador llama al script de configuración inicial, éste a su vez llama al <em>0_funciones_catalogos</em> para luego a partir de un script de extracción se lamen los inputs para su transformación, y luego, cuando aplique, los scripts del cálculo de los indicadores, para dar con el output final.</p>
 <div class="figure"><span style="display:block;" id="fig:secConfigInicial"></span>
-<img src="images-1/02/sec_config_inicial.png" alt="Presentación esquematizada de la relación "  />
+<img src="images-1/02/detallesscriptsgenerico.jpg" alt="Presentación esquematizada de la relación "  />
 <p class="caption">
-Recuadro 3.2: Presentación esquematizada de la relación
+Recuadro 3.1: Presentación esquematizada de la relación
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:secuenciadoresparaactualizar"></span>
+<img src="images-1/important-icon.svg" alt="La utilidad de los secuenciadores" width="50px" style="float:left; background-color: #fff; padding-right:1em" />
+<p class="caption">
+Recuadro 3.2: La utilidad de los secuenciadores
+</p>
+</div>
+<div class="rmdcomment">
+<p>
+La lógica de tener scripts secuenciadores es que son los únicos
+scripts que se requieren ejecutar para lograr una actualización del
+SIDIL, notando que además esto puede limitarse a ciertos módulos
+únicamente. Esto es, ante la pregunta ¿cómo se actualiza el SIDIL? la
+respuesta es breve: ejecutando los scripts secuenciadores en el orden en
+que se presentaron en esta sección. ¿Por qué importa el orden? Porque de
+no hacerlo se corre el riesgo de utilizar información desactualizada que
+sólo se actualizaría después de que fuera necesitada. Por ejemplo, para
+imputar la estimación de un indicador coyuntural a un CT,
+<strong>primero</strong> es importante actualizar el valor de dichas
+estimaciones (módulo I) para que al realizar la imputación (módulo II)
+se disponga de la última actualización disponible.
+</p>
+<p>
+Esto se vuelve particularmente importante en el módulo II, ya que
+mientras que al interior del módulo I es indistinto el orden en el que
+se actualizan los indicadores (si primero IMSS o primero ENOE), en el
+caso del módulo II el orden se vuelve importante, porque primero se
+consulta al universo de CT, luego se le imputan las estimaciones
+puntuales de coyuntura (del módulo I) y por último se aplica el modelo
+preentrenado para la predicción de riesgo. Hacerlo en orden distinto
+podría, por ejemplo, llevar a realizar una predicción de riesgo con base
+en el valor de indicadores desactualizados, lo cual no es deseable y
+prácticamente desaprovecha todo trabajo de actualización de indicadores
+del módulo I.
 </p>
 </div>
 </div>
@@ -305,50 +398,51 @@ Recuadro 3.2: Presentación esquematizada de la relación
 <div id="estructuracarpetas" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Estructura de carpetas y sintaxis de archivos<a href="elementosgenerales.html#estructuracarpetas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Dada la división de instrucciones en los diferentes scripts que fueron enunciados de manera genérica en la sección anterior, la estructura de las carpetas con que trabaja el SIDIL se describe en esta sección.</p>
-<p>La organización de archivos en estas carpetas es agnóstica al sistema operativo y ubicación del SIDIL, siempre y cuando se transfiera el conjunto de carpetas sin realizar modificaciones. De realizarse cambios en los nombres de las carpetas, es muy probable que muchos scripts no funcionen, toda vez que los nombres de las carpetas son parte sustantiva de la identificación de inputs, scripts y outputs que se deben correr. De la misma manera, el cambio en el nombre de algunos archivos, particularmente los catálogos que no llevan una versión en el nombre del archivo, puede requerir ajustes en el código.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>La organización de archivos en estas carpetas es agnóstica al sistema operativo y ubicación del SIDIL, siempre y cuando se transfiera el conjunto de carpetas sin realizar modificaciones. De realizarse cambios en los nombres de las carpetas, es muy probable que muchos scripts no funcionen, toda vez que los nombres de las carpetas son parte sustantiva de la identificación de inputs, scripts y outputs que se deben correr. De la misma manera, el cambio en el nombre de algunos archivos, particularmente los catálogos que no llevan una versión en el nombre del archivo, pueden requerir ajustes en el código.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>En algunas carpetas específicas, particularmente las de la subcarpeta de insumos, la estructura ramificada incluye una subcarpeta final llamada “anteriores” que permite almacenar versiones anteriores de los objetos. Esto es particularmente útil para el procesamiento de catálogos toda vez que el código de lectura de catálogos busca específicamente un nombre determinado y todas las versiones anteriores a dicho catálogo deben estar almacenadas en la subcarpeta anteriores.</p>
 <p>Cuarto, hay un script que genera esta estructura de carpetas a partir del catálogo de carpetas, el cual crea las carpetas, de no existir alguna de estas.</p>
-<p>Hay cuatro grandes carpetas: 1_insumos, 2_codigos, 3_resultados, 4_reportes.</p>
+<p>Hay cuatro grandes carpetas: <em>1_insumos</em>, <em>2_codigos</em>, <em>3_resultados</em>, <em>4_reportes</em>.</p>
 <div class="figure"><span style="display:block;" id="fig:organizacioncatalogos"></span>
-<img src="images-1/03/organizacion_catalogos.png" alt="Organización básica de las principales carpetas"  />
+<img src="images-1/03/organizacion_catalogos2.jpg" alt="Organización básica de las principales carpetas"  />
 <p class="caption">
 Recuadro 3.3: Organización básica de las principales carpetas
 </p>
 </div>
 <p>Al interior de 1_insumos se encuentran tres subcarpetas:</p>
 <ul>
-<li><p>La primera, <em>catalogos</em>, reúne los diferentes archivos que sistematizan y etiquetan la información. Sobre ello se profundiza en la sección 3.9.</p></li>
+<li><p>La primera, <em>catálogos</em>, reúne los diferentes archivos que sistematizan y etiquetan la información. Sobre ello se profundiza en la sección <a href="elementosgenerales.html#catalogos">Catálogos de información</a>.</p></li>
 <li><p>La segunda es <em>originales</em> y sirve para depositar las fuentes de información sin procesamiento previo, por ejemplo, los archivos originales en formato dbf que componen la ENOE, o los archivos separados por tabulados que componen los registros administrativos del IMSS.</p></li>
 <li><p>En la tercer subcarpeta, de nombre <em>procesados</em>, se almacenan los resultados del procesamiento que ya forma parte del SIDIL, concretamente, el resultado de la extracción y transformación de cada fuente de información, siempre que se requiera el guardado de los temporales procesados. Notar que un criterio que determina si los resultados se resguardan aquí, en esta carpeta, o en <em>3_resultados</em> es que siempre que los resultados sean consultados por otro módulo entonces se guardan en <em>3_resultados</em>.</p>
 <ul>
 <li>Notar que en el caso de la ENOE, dado que su procesamiento no demanda mucha RAM, no se escribe a disco en esta carpeta. En contraste, para el procesamiento del IMSS se escriben tanto archivos temporales intermedios (que se borran luego de su utilización de manera automática) como también el guardado de los procesados “finales” (sin que estos sean resultados, sino que únicamente “preprocesados” que reducen las dimensiones y “limpian” algunos campos de los insumos).</li>
 </ul></li>
 </ul>
-<p><mark>@@ idea capsula
-breve tour por las carpetas dentro de 1_insumos</mark></p>
+<!-- [@@ idea capsula -->
+<!-- breve tour por las carpetas dentro de 1_insumos]{.mark} -->
 <p>Al interior de <em>2_codigos</em>, existen tres principales subcarpetas:</p>
 <ul>
 <li><p><em>cod_config_inicial</em>: almacena el script <em>0_config_inicial</em>, y el script <em>0_funciones_catalogos</em> que se corren de manera anidada como parte de la ejecución de los scripts secuenciadores</p></li>
 <li><p><em>coyuntura:</em> almacena en sus respectivas subcarpetas, los scripts que se requieren para la explotación de las diferentes fuentes de información. Por ejemplo, para la explotación de las fuentes de información ENOE e IMSS hay carpetas asignadas para almacenar, respectivamente, el script secuenciador, el script de extracción y transformación, los scripts de indicadores y los scripts de reportes.</p></li>
-<li><p><em>historico:</em> lo mismo que <em>coyuntura</em> pero a fines de la construcción histórica de los indicadores.</p></li>
+<li><p><em>histórico:</em> lo mismo que <em>coyuntura</em> pero a fines de la construcción histórica de los indicadores.</p></li>
 </ul>
 <p>En la carpeta <em>3_resultados</em> se distinguen tres subcarpetas:</p>
 <ul>
 <li><p><em>coyuntura</em>: contiene subcarpetas para los cálculos de indicadores y las consultas al DNE</p></li>
-<li><p><em>historico:</em> similar al caso anterior, pero con la consideración histórica</p></li>
+<li><p><em>histórico:</em> similar al caso anterior, pero con la consideración histórica</p></li>
 <li><p><em>MPR:</em> El principal resultado del SIDIL, todas las versiones de ellas.</p></li>
 </ul>
 <p>En la carpeta <em>4_reportes</em> se albergan cuatro subcarpetas</p>
 <ul>
-<li><p><em>bitacoras:</em> contiene dos archivos, ambos en formato tabular: Una bitácora donde se registran todas las ejecuciones de todos los scripts secuenciadores, y una bitácora de estatus donde se registra únicamente la última ejecución de cada script. El primero hace a la trazabilidad del sistema, mientras que el segundo permite mantener actualizada una tabla que se despliega en la interfaz de consulta y que informa, justamente, la última ejecución de cada proceso. Estos archivos, respectivamente, se llaman bitácora y bitácora_estatus y están en formato csv.</p></li>
+<li><p><em>bitácoras:</em> contiene dos archivos, ambos en formato tabular: Una bitácora donde se registran todas las ejecuciones de todos los scripts secuenciadores, y una bitácora de estatus donde se registra únicamente la última ejecución de cada script. El primero hace a la trazabilidad del sistema, mientras que el segundo permite mantener actualizada una tabla que se despliega en la interfaz de consulta y que informa, justamente, la última ejecución de cada proceso. Estos archivos, respectivamente, se llaman bitácora y bitácora_estatus y están en formato csv.</p></li>
 <li><p><em>eval_modelo:</em> contiene los reportes de evaluación del modelo entrenado</p></li>
 <li><p><em>Logs:</em> resguarda los logs (archivos .txt) que contienen los resultados y mensajes de la consola cuando se ejecutan los scripts</p></li>
-<li><p><em>parametros: es la exportación de los parámetros que se definen en el script de configuración inicial.</em></p></li>
+<li><p><em>parámetros: es la exportación de los parámetros que se definen en el script de configuración inicial.</em></p></li>
 </ul>
-<p><mark>@@ idea video capsula:
-breve tour por las carpetas dentro de 4_resultados
-particularmente mostrar la diferencia entre las dos bitacoras.
-mostrar también cómo se lee el log</mark></p>
+<!-- [@@ idea video capsula: -->
+<!-- breve tour por las carpetas dentro de 4_resultados -->
+<!-- particularmente mostrar la diferencia entre las dos bitacoras. -->
+<!-- mostrar también cómo se lee el log  -->
+<!-- ]{.mark} -->
 </div>
 <div id="temporalidad" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Sobre la temporalidad<a href="elementosgenerales.html#temporalidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -360,7 +454,7 @@ mostrar también cómo se lee el log</mark></p>
 <p>El SIDIL, a lo largo de los diferentes módulos, está configurado para procesar o utilizar la última versión de un objeto, independientemente de su periodo de referencia. Es decir, toma la fecha de modificación que forma parte del nombre del archivo. Por eficiencia, lo más sensato es recurrir a la fecha de modificación.</p>
 <p>En cambio, el formato de la referencia al periodo temporal es específico para cada fuente de información, toda vez que la frecuencia de actualización y representatividad es específica a cada fuente. Así por ejemplo la tabla con la información sociodemográfica de las personas encuestadas en la ENOE contiene en su nombre “1t2022” haciendo referencia al primer trimestre de 2022. En cambio, para el IMSS; cuya información original es de frecuencia mensual, la referencia es 2022131 (que representa la fecha de corte al 31 de enero de 2022).</p>
 <div class="figure"><span style="display:block;" id="fig:versionadoelementos"></span>
-<img src="images-1/important-icon.svg" alt="Versionado de elementos" width="50px" style="float:left; background-color: #f5f5f5; padding-right:1em" />
+<img src="images-1/important-icon.svg" alt="Versionado de elementos" width="50px" style="float:left; background-color: #fff; padding-right:1em" />
 <p class="caption">
 Recuadro 3.4: Versionado de elementos
 </p>
@@ -377,10 +471,10 @@ El formato de definición de la fecha que se utiliza para identificar
 la versión únicamente será el siguiente: <em>aaaa_mm_dd_hhmm</em>, es
 decir, cuatro dígitos para el año, seguido de un guion bajo, luego dos
 dígitos para el mes, otro guion bajo, luego dos dígitos para el día,
-otro guion bajo, y dos dígitos de la hora  y dos de la hora juntos.
-Notar que la hora es en formato 24 horas. Por ejemplo: 2022_11_03_0901
-(año 2022, mes noviembre, día 03, 09 horas con 01 minutos). Este
-versionado se actualiza y genera automáticamente mediante el script de
+otro guion bajo, y dos dígitos de la hora y dos de la hora juntos. Notar
+que la hora es en formato 24 horas. Por ejemplo: 2022_11_03_0901 (año
+2022, mes noviembre, día 03, 09 horas con 01 minutos). Este versionado
+se actualiza y genera automáticamente mediante el script de
 configuración inicial. La fecha y hora se obtiene directamente del
 sistema.
 </p>
@@ -434,10 +528,10 @@ enero de 2022.
 <h2><span class="header-section-number">3.5</span> Mensajes al usuario<a href="elementosgenerales.html#mensajesGeneral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Esta sección adelanta algunos detalles que, independientemente de la ejecución a partir de una interfaz paraguas para la ejecución (semi)automatizada de los diferentes procesos (Ver sección xxx), ya pueden ser confirmados.</p>
 <p>A lo largo de su ejecución, los diversos procedimientos reportan mensajes al usuario a través de la consola del software. Estos mensajes pueden ser clasificados en los siguientes grupos:</p>
-<div id="mensajesError" class="section level3 hasAnchor" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Mensajes de error<a href="elementosgenerales.html#mensajesError" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mensajesError.unnumbered" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Mensajes de error<a href="elementosgenerales.html#mensajesError.unnumbered" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Estos mensajes surgen cuando la ejecución del código no es como se espera y el proceso probablemente falle en una(s) parte(s) o toda su ejecución. Casi con seguridad no se cumplió con el propósito del proceso y el mismo se interrumpió.</p>
-<p>En algunos casos el mensaje de error puede reunir dos o tres elementos. Como se observa en el ejemplo a continuación, un primer elemento es el que está escrito en español. Esto es porque en este caso se pudo prever que este tipo de error pudiera surgir. El segundo elemento es el que empieza con “Error in …” y esta es la información de error que genera el propio sistema. El tercer elemento es el que empieza con “Warning message…”, cuya aparición depende del tipo de error. Sobre esto último es importante notar que la aparición de un mensaje de “warning” por si sólo en muchas ocasiones no es un error y sólo es una advertencia del propio sistema. El SIDIL anticipa mucho de estos warning a partir de “encapsular” ciertas partes del código en un TryCatch.</p>
+<p>En algunos casos el mensaje de error puede reunir dos o tres elementos. Como se observa en el ejemplo a continuación, un primer elemento es el que está escrito en español. Esto es porque en este caso se pudo prever que este tipo de error pudiera surgir. El segundo elemento es el que empieza con “Error in …” y esta es la información de error que genera el propio sistema. El tercer elemento es el que empieza con “Warning message…”, cuya aparición depende del tipo de error. Sobre esto último es importante notar que la aparición de un mensaje de “warning” por sí sólo en muchas ocasiones no es un error y sólo es una advertencia del propio sistema. El SIDIL anticipa mucho de estos warning a partir de “encapsular” ciertas partes del código en un TryCatch.</p>
 <blockquote>
 <p><em>“2022-12-22 13:19:13 ***ERROR***: No fue posible guardar el ultimo insumo de Accidentes (STPS_RT_202212.xlsx) debido a: Error in gzfile(file, mode): cannot open the connection</em></p>
 </blockquote>
@@ -447,8 +541,8 @@ enero de 2022.
 </blockquote>
 <p>Notar que no siempre estarán los tres elementos en un mensaje de error. Podría ser un error no previsto, en cuyo caso no habrá un texto en español, o bien el propio sistema podría no arrojar el tercer elemento (“<em>Warning…</em>”) toda vez que no lo prevé así este lenguaje.</p>
 </div>
-<div id="mensajesAdvertencia" class="section level3 hasAnchor" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Mensajes de advertencia<a href="elementosgenerales.html#mensajesAdvertencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mensajesAdvertencia.unnumbered" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Mensajes de advertencia<a href="elementosgenerales.html#mensajesAdvertencia.unnumbered" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Son mensajes que requieren la atención del usuario pero que no necesariamente implican que algo haya salido mal, y que no impiden que el procedimiento se desarrolle. Por ejemplo, en el procesamiento de los insumos más recientes de los registros administrativos del IMSS, se notifica al usuario si los periodos de referencia de los dos insumos que se deben “cruzar” (puestos asegurados y patrones registrados) no se refieren al mismo periodo de referencia. En dicho caso, el mensaje se despliega como:</p>
 <blockquote>
 <p><em>“2022-12-22 12:45:15 ***ADVERTENCIA***: el periodo de referencia para insumos Patrones y Puestos no coincide.”</em></p>
@@ -456,8 +550,8 @@ enero de 2022.
 <p>Como se explica más adelante, esto pudiera ser intencional o no y requiere la atención de una persona especialista para evaluar si es pertinente o se requieren ajustar, en este caso, los insumos puestos a disposición del SIDIL.</p>
 <p>Notar que tanto los mensajes de error como de advertencia son acompañados, cuando previstos por el sistema, con tres asteriscos antes y después del tipo de error. Esto para propiciar su identificación en la consola.</p>
 </div>
-<div id="mensajesConfirmacion" class="section level3 hasAnchor" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Mensajes de información o de confirmación<a href="elementosgenerales.html#mensajesConfirmacion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mensajesConfirmacion.unnumbered" class="section level3 hasAnchor" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Mensajes de información o de confirmación<a href="elementosgenerales.html#mensajesConfirmacion.unnumbered" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Son mensajes que en la mayoría de las veces sólo informan al usuario el inicio o conclusión de algún proceso, mismo que anticipa qué estará procesando la computadora. Un ejemplo es:</p>
 <blockquote>
 <p><em>2022-12-22 12:49:34 INFO: Se comienza lectura de insumo Accidentes: STPS_RT_202212.xlsx - periodo: 202212. El archivo pesa: 0.017 Mb</em></p>
@@ -493,7 +587,7 @@ enero de 2022.
 <li><p>Catálogo de indicadores (subcarpeta <em>indicadores,</em> archivo <em>cat_indicadores</em>). Este catálogo contiene los indicadores calculados que se utilizan en el SIDIL para el entrenamiento y la predicción del riesgo de los CT. Consta de las siguientes columnas: <em>fuente</em>, <em>indicador</em> (nombre que le fue asignado), <em>etiqueta</em> (breve descripción del indicador), <em>entra_al_modelo</em> (con opciones de si y no que indica aquellos indicadores que toma en cuenta el modelo predictivo), <em>especificación</em> (a qué tipo de combinación de tablas aplica en la fuente de información original, específicamente para indicadores del IMSS). <em>umbral_cv</em> representa el máximo nivel del coeficiente de variación que se acepta en una estimación puntual, particularmente importante para la explotación de muestras complejas. <em>referencia</em> es el nivel de significancia para la detección de outliers al comparar estimaciones puntuales coyunturales contra valores de referencia construiídos a partir de <em>etiqueta_MPR</em> y <em>descripcion_MPR</em> son para la caracterización en la MPR. Notar que cualquier cambio en los indicadores (supresión o incorporación de nuevos indicadores o cambios en alguno de los campos) debe ser reflejado en este archivo.</p></li>
 <li><p>Catálogo de niveles de agregación (subcarpeta <em>niveles_agregacion</em>, archivo <em>cat_niveles_agregacion</em>): especifica los diferentes niveles de agregación según la especificidad de los campos de clasificación industrial (a dos y tres dígitos, <em>scian2018_2</em> y <em>scian2018_3</em>, respectivamente), de geografía (geo2- a nivel estatal- y geo5 - municipal) y de categoría de tamaño (<em>cat_tamanio</em>).</p></li>
 <li><p>Catálogo de categorías de tamaño (subcarpeta <em>tamanio</em>, archivo: <em>cat_tamanio)</em>: el catálogo contiene las seis categorías de tamaño de los CT estipulados en el SIDIL. La tabla cuenta con cinco columnas: <em>cat_tamanio</em> (enumeración del 1 al 6), <em>etiq_cat_tamanio</em> (la etiqueta del rango de tamaño para cada enumeración), <em>estrato_censo_economico</em> (la homologación entre el campo <em>estrato</em> del Censo Económico y el campo <em>cat_tamanio</em>), <em>p3q_en_enoe</em> (la homologación entre el campo <em>p3q</em> de la ENOE y el campo <em>cat_tamanio</em>) y <em>corte_numerico</em> (la homologación entre los datos del IMSS y el campo <em>cat_tamanio</em>). Si llegase a cambiar alguna de las categorías de alguna de las fuentes, los cambios correspondientes se deben hacer directamente en este catálogo.</p></li>
-<li><p>Catálogo de campos del DNE (subcarpeta <em>campor_DNE</em>, archivo: <em>cat_campos_DNE).</em> El catálogo contiene los campos que serán recuperados del DNE a lo largo de los diferentes scripts. Cuenta con cinco columnas: <em>fuente</em> (DNE en todos los casos), <em>indicador</em> (con el nombre del campo), <em>etiqueta</em> y <em>entra_al_modelo</em> (con opciones de si y no para entrar al modelo predictivo), <em>tabla</em> (la entidad dentro de la base de datos relacional). Con el campo <em>tipo</em> se escpecifica que tipo de filtro aplica al explotar estos campos (que luego en la MPR son atributos de los CT del DNE) a través de la interfaz de consulta.</p></li>
+<li><p>Catálogo de campos del DNE (subcarpeta <em>campor_DNE</em>, archivo: <em>cat_campos_DNE).</em> El catálogo contiene los campos que serán recuperados del DNE a lo largo de los diferentes scripts. Cuenta con cinco columnas: <em>fuente</em> (DNE en todos los casos), <em>indicador</em> (con el nombre del campo), <em>etiqueta</em> y <em>entra_al_modelo</em> (con opciones de si y no para entrar al modelo predictivo), <em>tabla</em> (la entidad dentro de la base de datos relacional). Con el campo <em>tipo</em> se especifica qué tipo de filtro aplica al explotar estos campos (que luego en la MPR son atributos de los CT del DNE) a través de la interfaz de consulta. Con un filtro tipo <strong>combo</strong> se refiere a que el campo permite únicamente la selección de una opción, mientras que, en oposición, el filtro tipo <strong>sel_mul</strong> indica la posibilida de realizar una selección múltiple. El filtro de tipo <strong>numérico</strong> permite acotar la selección por valores de ese campo; y de manera análoga, el filtro tipo <strong>fecha</strong>. Por último <strong>na</strong> indica que dicho campo no entra como atributo para filtrar en interfaz de consulta.</p></li>
 <li><p>Catálogo de campos del SIAPI SIPAS (subcarpeta <em>campos_SIAPISIPAS</em>, archivo: <em>cat_campos_SIAPISIPAS</em>): Contiene los campos y ubicación de los mismos dentro del sistema SIAPI SIPAS.</p></li>
 <li><p>Catálogo de procesos (directamente en la subcarpeta <em>procesamiento_informacion</em>): Este catálogo identifica los procesos que se pueden ejecutar desde la interfaz de automatización.</p></li>
 </ol></li>
@@ -511,7 +605,7 @@ enero de 2022.
 </ol></li>
 </ol>
 <div class="figure"><span style="display:block;" id="fig:cambioscatalogos"></span>
-<img src="images-1/important-icon.svg" alt="Versiones de archivos de catálogos." width="50px" style="float:left; background-color: #f5f5f5; padding-right:1em" />
+<img src="images-1/important-icon.svg" alt="Versiones de archivos de catálogos." width="50px" style="float:left; background-color: #fff; padding-right:1em" />
 <p class="caption">
 Recuadro 3.5: Versiones de archivos de catálogos.
 </p>
@@ -565,24 +659,36 @@ requiere tomar este archivo en consideración.
 </div>
 <div id="la-matriz-de-predicción-de-riesgo" class="section level2 hasAnchor" number="3.8">
 <h2><span class="header-section-number">3.8</span> La Matriz de Predicción de Riesgo<a href="elementosgenerales.html#la-matriz-de-predicción-de-riesgo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La Matriz de Predicción de Riesgo (MPR) es un producto crítico del sistema. La MPR es la tabla que reúne el universo actualizado de centros de trabajo disponibles en el DNE (una fila de la matriz por cada centro de trabajo), junto con sus atributos más importantes, los indicadores atribuidos a ellos a partir de la explotación de diferentes fuentes de información, y por supuesto, la predicción de riesgo asociada a ciertas submaterias y una predicción de riesgo general (todo ello en las columnas de la matriz). Es, en esencia, el principal producto del SIDIL previo a la priorización de un subconjunto del universo de CT realizada por quien esté a cargo de la programación de inspecciones.</p>
-<p>La MPR es un punto crítico porque:</p>
+<p>La Matriz de Predicción de Riesgo (MPR) es quizá el producto más importante del SIDIL. En ella confluye el resultado de todos los procesos que se realizan a lo largo del SIDIL, sea de manera directa o indirecta, quizá solamente dejando de lado aquellos procesos que ocurren en el módulo III - la interfaz de consulta.</p>
+<p>La MPR es tan importante porque es la tabla que:</p>
 <ol style="list-style-type: decimal">
-<li><p>Es el producto con el cual culmina el proceso a cargo de la DGIET, es decir, en donde concluye el procesamiento de información.</p></li>
-<li><p>Contiene el resumen de toda la información extraída, generada o procesada a lo largo del ciclo del SIDIL para los centros de trabajo.</p></li>
-<li><p>Junto con los metadatos asociados a la MPR, es el único insumo imprescindible para el funcionamiento de la interfaz de consulta.</p></li>
-<li><p>Contiene toda la información que, a través de filtros y consultas, permitirá generar los universos susceptibles de ser inspeccionados, priorizados por riesgo de incumplimiento en las diferentes submaterias.</p></li>
+<li>Presenta a todos los centros de trabajo activos en el DNE, mismos que son susceptibles de ser inspeccionados. Esto es resultado de la ejecución del primer secuenciador del módulo II, 2_consulta_DNE, incluso reflejando ya el enriquecimiento del campo <strong>cat_tamanio</strong> cuando el CT es encontrado a través de su registro patronal en la base de patrones del IMSS.</li>
+<li>Incorpora a cada uno de estos CT del punto anterior, todos los indicadores laborales coyunturales (resultado de correr todos los scripts del módulo I). Esto se realiza a través de la ejecución del script de matching coyuntural (2_matching_coyuntural), que identifica si al CT se le pueden imputar indicadores nominativos o agregados, según el caso.</li>
+<li>Presenta las predicciones de riesgo para cada una de las submaterias, además de una predicción de riesgo general. Esto se refleja a partir de correr el script de predicción o deploy del modelo (2_prediccion) que justamente recupera el modelo entrenado del módulo IV (mismo que refleja los resultados de todos los scripts del módulo IV).</li>
+<li>En consecuencia de los tres puntos anteriores, permite a la DGIFT explotar toda la riqueza del SIDIL concentrada en un solo lugar, toda vez que es el único insumo que se requiere para la ejecución de la interfaz de consulta.</li>
 </ol>
-<p><mark>@<span class="citation">@idea</span> capsula:
-breve tour por una MPR mostrando que el nro de filas depende del número de CT activos en MPR, y los diferentes tipos de columnas que hay y como se relacionan estos con los catalogos de campos_DNE y cat_indicadores</mark></p>
+<p>Es, en esencia, el principal producto del SIDIL previo a la priorización de un subconjunto del universo de CT realizada por quien esté a cargo de la programación de inspecciones.</p>
+<p>Aemás, la MPR es un punto crítico porque es el producto con el cual culmina el proceso a cargo de la DGIET, es decir, en donde concluye el procesamiento de información, conteniendo, insistimos, toda la información extraída, generada o procesada a lo largo del ciclo del SIDIL para los centros de trabajo.</p>
+<p>En la ilustración a continuación se observa una estructura simplificada de la MPR: En primera instancia, una columna de identificador único de los CT en el DNE. Esto permite asociar dicha fila de la MPR a información como el nombre del CT, dirección, etc. del CT en el DNE. Le sigue un primer grupo de columnas que son los atributos del CT que se observan en el DNE o, en el caso de <strong>cat_tamanio</strong> fueron potencialmente enriquecidas por la consulta de enriquecimiento al DNE. No sobra mencionar que, mientras en la ilustración se presenta directamente la etiqueta del campo (por ejemplo “Aguascalientes”), en la MPR se incluye tanto el valor numérico del campo (en este caso <strong>01</strong>) como su etiqueta. Dadas algunas pequeñas diferencias en la clasificación de los municipios y los sectores industriales, cabe notar que en la MPR se utiliza el marco geoestadístico vigente del INEGI (no la clasificación de municipios del DNE), y el Sistema de Clasificación Industrial de América del Norte (SCIAN) en su versión 2018, respectivo. Todas las columnas que forman parte de este primer grupo comienzan con el prefijo <strong>atrib_</strong> para facilitar su detección. Aquí es importante agregar que es muy factible que algunas de estas columnas tengan un elevado porcentaje de valores faltantes, como, por ejemplo, <strong>cat_tamanio</strong>, pues así viene la información registrada en el DNE.</p>
+<p>El segundo grupo de columnas son los indicadores, mismos que comienzan con el prefijo <strong>ind_</strong> y que no son otra cosa que todos los indicadores disponibles, en su actualización más reciente, a partir de los procesos generados en el módulo I. Notar que la inclusión de estos indicadores no depende de que hayan sido utilizados en el entrenamiento del modelo y la predicción de riesgo posterior. Es decir, uno podría encontrar un indicador entre estas columnas que no fue utilizado para la predicción de riesgo. Por definición, todas estas columnas no tienen un valor faltante, ya que en última instancia se imputa el promedio nacional del indicador mismo que siempre es posible calcular para todos los indicadores.</p>
+<p>Por último en las columnas de prefijo <strong>pred_</strong> y la columna <strong>riesgo</strong> se encuentran las predicciones por submateria o la de riesgo general, respectivamente. Recordemos que la predicción por submateria es independiente de las predicciones en las otras submaterias, lo cual permite utilizar cualquiera de estas columnas de predicción de manera independiente de las otras. Por definición, aqui también todos los CT tienen una predicción, es decir, no hay valores faltantes entre las predicciones.</p>
+<div class="figure"><span style="display:block;" id="fig:MPRsimplificada2"></span>
+<img src="images-1/02/MPR_simplificada.jpg" alt="Matriz de predicción de riesgos (ilustración simplificada)"  />
+<p class="caption">
+Recuadro 3.6: Matriz de predicción de riesgos (ilustración simplificada)
+</p>
+</div>
+<p>Cabe agregar que en la MPR se reflejará toda actualización que se realice en el SIDIL, provisto se corran los tres scripts secuenciadores del módulo II, mismos que, de manera secuencial van generando la MPR por partes: El primer script, 2_consulta_DNE, actualiza el número y atributos observables de los CT en el DNE. Esto directamente se traduce en el número de filas que se observarán en la MPR. Segundo, el script 2_matching_coyuntural, que <strong>barre</strong> las últimas estimaciones puntuales de todos los indicadores calculados en el módulo I para imputarlos de manera nominativa o por nivel de agregación, a los CT consultados del DNE. Y por último, el tercer script del módulo II que, utilizando el resultado de los dos scripts anteriores, aplica el modelo que genera la predicciones por submateria y la predicción de riesgo general.</p>
+<!-- [@@idea capsula: -->
+<!-- breve tour por una MPR mostrando que el nro de filas depende del número de CT activos en MPR, y los diferentes tipos de columnas que hay y como se relacionan estos con los catalogos de campos_DNE  y cat_indicadores ]{.mark} -->
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>El lector percibirá que no hay un script secuenciador del censo económico histórico. Esto se debe a que dichos indicadores no entran al entrenamiento del modelo, como se describe en el módulo IV.<a href="elementosgenerales.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>En estos casos, para mantener el control de versiones, al resguardar la versión anterior del catálogo, se le agrega la fecha de resguardo de dicha versión “anterior” al nombre del archivo. Ver Recuadro 8.<a href="elementosgenerales.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<ol start="2">
+<li id="fn2"><p>El lector percibirá que no hay un script secuenciador del censo económico histórico. Esto se debe a que dichos indicadores no entran al entrenamiento del modelo, como se describe en el módulo IV.<a href="elementosgenerales.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>En estos casos, para mantener el control de versiones, al resguardar la versión anterior del catálogo, se le agrega la fecha de resguardo de dicha versión “anterior” al nombre del archivo. Ver Recuadro 8.<a href="elementosgenerales.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -591,7 +697,7 @@ breve tour por una MPR mostrando que el nro de filas depende del número de CT a
         </div>
       </div>
 <a href="estructura-y-flujos-de-trabajo-del-sidil.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="presentación-sintética-de-todos-los-scripts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="procesamiento.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -639,13 +745,27 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "none",
+"collapse": "section",
 "scroll_highlight": true
 }
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 2 Estructura y flujos de trabajo del SIDIL | SIDIL: Manual del procesamiento y explotación de la información</title>
   <meta name="description" content="Breve descripcion pendiente" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 2 Estructura y flujos de trabajo del SIDIL | SIDIL: Manual del procesamiento y explotación de la información" />
   <meta property="og:type" content="book" />
@@ -51,8 +51,18 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -141,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Manual de procesamiento y explotación de información</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bienvenida</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introalineacion"><i class="fa fa-check"></i><b>1.1</b> Alineación con la misión y programas de gobierno</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#introjustificacion"><i class="fa fa-check"></i><b>1.2</b> Justificación de la viabilidad del proyecto</a></li>
@@ -156,8 +166,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIexplicaciongeneral"><i class="fa fa-check"></i>Módulo I: actualización de indicadores</a></li>
 <li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIIexplicaciongeneral"><i class="fa fa-check"></i>Módulo II: Consulta al universo de CT, imputación de indicadores y predicción de riesgo</a></li>
-<li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIyIIexplicaciongeneral"><i class="fa fa-check"></i>Módulos I y II: operables desde la interfaz de automatización</a></li>
-<li class="chapter" data-level="2.2.1" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#módulo-iii-consulta-de-la-mpr-para-priorización-de-ct-a-inspeccionar"><i class="fa fa-check"></i><b>2.2.1</b> Módulo III: Consulta de la MPR para priorización de CT a inspeccionar</a></li>
+<li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIIIConsultaMPR"><i class="fa fa-check"></i>Módulo III: Consulta de la MPR para priorización de CT a inspeccionar</a></li>
+<li class="chapter" data-level="" data-path="estructura-y-flujos-de-trabajo-del-sidil.html"><a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIVEntrenamientoModelo"><i class="fa fa-check"></i>Módulo IV: Entrenamiento del modelo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="elementosgenerales.html"><a href="elementosgenerales.html"><i class="fa fa-check"></i><b>3</b> Elementos generales del procesamiento de datos</a>
@@ -172,45 +182,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="elementosgenerales.html"><a href="elementosgenerales.html#trazabilidad"><i class="fa fa-check"></i><b>3.4</b> Sobre trazabilidad: bitácora, log y parámetros</a></li>
 <li class="chapter" data-level="3.5" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesGeneral"><i class="fa fa-check"></i><b>3.5</b> Mensajes al usuario</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesError"><i class="fa fa-check"></i><b>3.5.1</b> Mensajes de error</a></li>
-<li class="chapter" data-level="3.5.2" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesAdvertencia"><i class="fa fa-check"></i><b>3.5.2</b> Mensajes de advertencia</a></li>
-<li class="chapter" data-level="3.5.3" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesConfirmacion"><i class="fa fa-check"></i><b>3.5.3</b> Mensajes de información o de confirmación</a></li>
+<li class="chapter" data-level="3.5.1" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesError.unnumbered"><i class="fa fa-check"></i><b>3.5.1</b> Mensajes de error</a></li>
+<li class="chapter" data-level="3.5.2" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesAdvertencia.unnumbered"><i class="fa fa-check"></i><b>3.5.2</b> Mensajes de advertencia</a></li>
+<li class="chapter" data-level="3.5.3" data-path="elementosgenerales.html"><a href="elementosgenerales.html#mensajesConfirmacion.unnumbered"><i class="fa fa-check"></i><b>3.5.3</b> Mensajes de información o de confirmación</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="elementosgenerales.html"><a href="elementosgenerales.html#software-para-el-procesamiento-de-datos"><i class="fa fa-check"></i><b>3.6</b> Software para el procesamiento de datos</a></li>
 <li class="chapter" data-level="3.7" data-path="elementosgenerales.html"><a href="elementosgenerales.html#catalogos"><i class="fa fa-check"></i><b>3.7</b> Catálogos de información</a></li>
 <li class="chapter" data-level="3.8" data-path="elementosgenerales.html"><a href="elementosgenerales.html#la-matriz-de-predicción-de-riesgo"><i class="fa fa-check"></i><b>3.8</b> La Matriz de Predicción de Riesgo</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="presentación-sintética-de-todos-los-scripts.html"><a href="presentación-sintética-de-todos-los-scripts.html"><i class="fa fa-check"></i><b>4</b> Presentación sintética de todos los scripts</a></li>
-<li class="chapter" data-level="5" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html"><i class="fa fa-check"></i><b>5</b> R, RStudio y Python</a>
+<li class="chapter" data-level="4" data-path="procesamiento.html"><a href="procesamiento.html"><i class="fa fa-check"></i><b>4</b> Procesamiento de las fuentes de información y generación de la MPR</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#r-y-rstudio"><i class="fa fa-check"></i><b>5.1</b> R y RStudio</a></li>
-<li class="chapter" data-level="5.2" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#el-entorno-de-rstudio"><i class="fa fa-check"></i><b>5.2</b> El entorno de RStudio</a></li>
-<li class="chapter" data-level="5.3" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#procedimiento-para-ejecutar-proyectos-y-scripts-en-rstudio"><i class="fa fa-check"></i><b>5.3</b> Procedimiento para ejecutar proyectos y scripts en RStudio</a></li>
-<li class="chapter" data-level="5.4" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#tipos-de-errores-que-se-pudieran-presentar"><i class="fa fa-check"></i><b>5.4</b> Tipos de errores que se pudieran presentar</a></li>
-<li class="chapter" data-level="5.5" data-path="r-rstudio-y-python.html"><a href="r-rstudio-y-python.html#python"><i class="fa fa-check"></i><b>5.5</b> Python</a></li>
+<li class="chapter" data-level="4.1" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModI"><i class="fa fa-check"></i><b>4.1</b> Módulo I: actualización de indicadores</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIdesafios"><i class="fa fa-check"></i><b>4.1.1</b> Desafíos al tratamiento de bases de datos externas</a></li>
+<li class="chapter" data-level="4.1.2" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModInivelesagregacion"><i class="fa fa-check"></i><b>4.1.2</b> Sobre niveles de agregación</a></li>
+<li class="chapter" data-level="4.1.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModInominativo"><i class="fa fa-check"></i><b>4.1.3</b> Sobre estimaciones puntuales nominativas</a></li>
+<li class="chapter" data-level="4.1.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModEspecificaciones"><i class="fa fa-check"></i><b>4.1.4</b> Especificaciones por fuente de información</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="especificaciones-del-servidor.html"><a href="especificaciones-del-servidor.html"><i class="fa fa-check"></i><b>6</b> Especificaciones del servidor</a></li>
-<li class="chapter" data-level="7" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html"><i class="fa fa-check"></i><b>7</b> Conceptos y hallazgos clave en la exploración del SIAPI-SIPAS</a>
+<li class="chapter" data-level="4.2" data-path="procesamiento.html"><a href="procesamiento.html#moduloii"><i class="fa fa-check"></i><b>4.2</b> Módulo II: imputación de indicadores y generación de la MPR</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#conceptos-y-clasificaciones-relevantes."><i class="fa fa-check"></i><b>7.1</b> Conceptos y clasificaciones relevantes.</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#planeación-de-la-inspección"><i class="fa fa-check"></i><b>7.1.1</b> Planeación de la inspección</a></li>
-<li class="chapter" data-level="7.1.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#meta-y-realización-de-inspecciones-a-realizar-por-tipo-estado-y-por-oficina"><i class="fa fa-check"></i><b>7.1.2</b> Meta y realización de inspecciones a realizar por tipo, estado y por oficina</a></li>
+<li class="chapter" data-level="4.2.1" data-path="procesamiento.html"><a href="procesamiento.html#propositomoduloii"><i class="fa fa-check"></i><b>4.2.1</b> Propósito principal</a></li>
+<li class="chapter" data-level="4.2.2" data-path="procesamiento.html"><a href="procesamiento.html#requisitosmoduloii"><i class="fa fa-check"></i><b>4.2.2</b> Requisitos para la ejecución de este módulo</a></li>
+<li class="chapter" data-level="4.2.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIimputacion"><i class="fa fa-check"></i><b>4.2.3</b> Imputación de indicadores laborales al universo de CT</a></li>
+<li class="chapter" data-level="4.2.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIprediccion"><i class="fa fa-check"></i><b>4.2.4</b> Predicción de riesgo</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#alcance-de-la-inspección"><i class="fa fa-check"></i><b>7.2</b> Alcance de la inspección</a>
+<li class="chapter" data-level="4.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIyIIinterfazAuto"><i class="fa fa-check"></i><b>4.3</b> Interfaz de automatización: Módulos I y II</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#criterios-de-selección-utilizados-antes-del-sidil."><i class="fa fa-check"></i><b>7.2.1</b> Criterios de selección utilizados antes del SIDIL.</a></li>
+<li class="chapter" data-level="4.3.1" data-path="procesamiento.html"><a href="procesamiento.html#propositointerfaz1"><i class="fa fa-check"></i><b>4.3.1</b> Propósito de la interfaz</a></li>
+<li class="chapter" data-level="4.3.2" data-path="procesamiento.html"><a href="procesamiento.html#accesointerfaz1"><i class="fa fa-check"></i><b>4.3.2</b> Acceso a la interfaz</a></li>
+<li class="chapter" data-level="4.3.3" data-path="procesamiento.html"><a href="procesamiento.html#organizacioninterfaz1"><i class="fa fa-check"></i><b>4.3.3</b> Organización de la interfaz</a></li>
+<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz1-8"><i class="fa fa-check"></i>Procesamiento de información</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#aspectos-pendientes-y-posibles-extensiones-a-futuro"><i class="fa fa-check"></i><b>7.3</b> Aspectos pendientes y posibles extensiones a futuro</a>
+<li class="chapter" data-level="4.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIIIinterfazConsulta"><i class="fa fa-check"></i><b>4.4</b> Módulo III: Priorización de los centros de trabajo</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#limitaciones-en-la-construcción-de-la-variable-dependiente"><i class="fa fa-check"></i><b>7.3.1</b> Limitaciones en la construcción de la variable dependiente</a></li>
-<li class="chapter" data-level="7.3.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#posibles-alternativas-como-variable-dependiente"><i class="fa fa-check"></i><b>7.3.2</b> Posibles alternativas como variable dependiente</a></li>
-<li class="chapter" data-level="7.3.3" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#section"><i class="fa fa-check"></i><b>7.3.3</b> </a></li>
+<li class="chapter" data-level="4.4.1" data-path="procesamiento.html"><a href="procesamiento.html#propositointerfaz2"><i class="fa fa-check"></i><b>4.4.1</b> Propósito de la interfaz</a></li>
+<li class="chapter" data-level="4.4.2" data-path="procesamiento.html"><a href="procesamiento.html#accesointerfaz2"><i class="fa fa-check"></i><b>4.4.2</b> Acceso a la interfaz</a></li>
+<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-1"><i class="fa fa-check"></i>Primera prestaña: Filtrado</a></li>
+<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-3"><i class="fa fa-check"></i>Segunda pestaña: Analisis</a></li>
+<li class="chapter" data-level="" data-path="procesamiento.html"><a href="procesamiento.html#interfaz2-4"><i class="fa fa-check"></i>Tabla final de resultados con sus pestañas</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="box-and-tables.html"><a href="box-and-tables.html"><i class="fa fa-check"></i><b>8</b> Box and tables</a>
+<li class="chapter" data-level="4.5" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIV"><i class="fa fa-check"></i><b>4.5</b> Módulo IV: Entrenamiento del modelo</a>
 <ul>
-<li class="chapter" data-level="8.0.1" data-path="box-and-tables.html"><a href="box-and-tables.html#tablas"><i class="fa fa-check"></i><b>8.0.1</b> Tablas</a></li>
+<li class="chapter" data-level="4.5.1" data-path="procesamiento.html"><a href="procesamiento.html#propositoModIV"><i class="fa fa-check"></i><b>4.5.1</b> Propósito principal</a></li>
+<li class="chapter" data-level="4.5.2" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVSIAPI"><i class="fa fa-check"></i><b>4.5.2</b> Construcción de la serie histórica de inspecciones laborales (2012-2022)</a></li>
+<li class="chapter" data-level="4.5.3" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVindicadores"><i class="fa fa-check"></i><b>4.5.3</b> Construcción de la serie histórica de indicadores laborales</a></li>
+<li class="chapter" data-level="4.5.4" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVmatching"><i class="fa fa-check"></i><b>4.5.4</b> Matching de las series históricas</a></li>
+<li class="chapter" data-level="4.5.5" data-path="procesamiento.html"><a href="procesamiento.html#procesamientoModIVEntrenamiento"><i class="fa fa-check"></i><b>4.5.5</b> Entrenamiento y evaluación del modelo de predicción</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="anexotablascripts.html"><a href="anexotablascripts.html"><i class="fa fa-check"></i><b>5</b> Anexo: Presentación sintética de todos los scripts</a></li>
+<li class="chapter" data-level="6" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html"><i class="fa fa-check"></i><b>6</b> Anexo: R, RStudio y Python</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html#r-y-rstudio"><i class="fa fa-check"></i><b>6.1</b> R y RStudio</a></li>
+<li class="chapter" data-level="6.2" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html#el-entorno-de-rstudio"><i class="fa fa-check"></i><b>6.2</b> El entorno de RStudio</a></li>
+<li class="chapter" data-level="6.3" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html#procedimiento-para-ejecutar-proyectos-y-scripts-en-rstudio"><i class="fa fa-check"></i><b>6.3</b> Procedimiento para ejecutar proyectos y scripts en RStudio</a></li>
+<li class="chapter" data-level="6.4" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html#tipos-de-errores-que-se-pudieran-presentar"><i class="fa fa-check"></i><b>6.4</b> Tipos de errores que se pudieran presentar</a></li>
+<li class="chapter" data-level="6.5" data-path="anexo-r-rstudio-y-python.html"><a href="anexo-r-rstudio-y-python.html#python"><i class="fa fa-check"></i><b>6.5</b> Python</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><i class="fa fa-check"></i><b>7</b> Anexo: Especificaciones técnicas y manual de instalación del servidor</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html#especificaciones-técnicas"><i class="fa fa-check"></i><b>7.1</b> Especificaciones técnicas</a></li>
+<li class="chapter" data-level="7.2" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html#manual-de-instalación"><i class="fa fa-check"></i><b>7.2</b> Manual de instalación</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html#preliminares-de-instalación"><i class="fa fa-check"></i><b>7.2.1</b> Preliminares de instalación</a></li>
+<li class="chapter" data-level="7.2.2" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html#instalación-de-programas"><i class="fa fa-check"></i><b>7.2.2</b> Instalación de programas</a></li>
+<li class="chapter" data-level="7.2.3" data-path="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html"><a href="anexo-especificaciones-técnicas-y-manual-de-instalación-del-servidor.html#instalación-del-sidil"><i class="fa fa-check"></i><b>7.2.3</b> Instalación del SIDIL</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html"><i class="fa fa-check"></i><b>8</b> Anexo: Conceptos y hallazgos clave en la exploración del SIAPI-SIPAS</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#conceptos-y-clasificaciones-relevantes."><i class="fa fa-check"></i><b>8.1</b> Conceptos y clasificaciones relevantes.</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#planeación-de-la-inspección"><i class="fa fa-check"></i><b>8.1.1</b> Planeación de la inspección</a></li>
+<li class="chapter" data-level="8.1.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#meta-y-realización-de-inspecciones-a-realizar-por-tipo-estado-y-por-oficina"><i class="fa fa-check"></i><b>8.1.2</b> Meta y realización de inspecciones a realizar por tipo, estado y por oficina</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#alcance-de-la-inspección"><i class="fa fa-check"></i><b>8.2</b> Alcance de la inspección</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="anexoHallazgos.html"><a href="anexoHallazgos.html#criterios-de-selección-utilizados-antes-del-sidil."><i class="fa fa-check"></i><b>8.2.1</b> Criterios de selección utilizados antes del SIDIL.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="videos.html"><a href="videos.html"><i class="fa fa-check"></i><b>9</b> Anexo: Videos de transferencia de conocimiento</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="videos.html"><a href="videos.html#sesion1"><i class="fa fa-check"></i><b>9.1</b> Sesión 1</a></li>
+<li class="chapter" data-level="9.2" data-path="videos.html"><a href="videos.html#sesion2"><i class="fa fa-check"></i><b>9.2</b> Sesión 2</a></li>
+<li class="chapter" data-level="9.3" data-path="videos.html"><a href="videos.html#sesion3"><i class="fa fa-check"></i><b>9.3</b> Sesión 3</a></li>
+<li class="chapter" data-level="9.4" data-path="videos.html"><a href="videos.html#sesion4"><i class="fa fa-check"></i><b>9.4</b> Sesión 4</a></li>
+<li class="chapter" data-level="9.5" data-path="videos.html"><a href="videos.html#sesion5"><i class="fa fa-check"></i><b>9.5</b> Sesión 5</a></li>
+<li class="chapter" data-level="9.6" data-path="videos.html"><a href="videos.html#sesion6"><i class="fa fa-check"></i><b>9.6</b> Sesión 6</a></li>
+<li class="chapter" data-level="9.7" data-path="videos.html"><a href="videos.html#sesion7"><i class="fa fa-check"></i><b>9.7</b> Sesión 7</a></li>
+<li class="chapter" data-level="9.8" data-path="videos.html"><a href="videos.html#sesion8"><i class="fa fa-check"></i><b>9.8</b> Sesión 8</a></li>
+<li class="chapter" data-level="9.9" data-path="videos.html"><a href="videos.html#sesion9"><i class="fa fa-check"></i><b>9.9</b> Sesión 9</a></li>
+<li class="chapter" data-level="9.10" data-path="videos.html"><a href="videos.html#sesion10"><i class="fa fa-check"></i><b>9.10</b> Sesión 10</a></li>
+<li class="chapter" data-level="9.11" data-path="videos.html"><a href="videos.html#sesion11"><i class="fa fa-check"></i><b>9.11</b> Sesión 11</a></li>
+<li class="chapter" data-level="9.12" data-path="videos.html"><a href="videos.html#sesion12"><i class="fa fa-check"></i><b>9.12</b> Sesión 12</a></li>
+<li class="chapter" data-level="9.13" data-path="videos.html"><a href="videos.html#sesion13"><i class="fa fa-check"></i><b>9.13</b> Sesión 13</a></li>
 </ul></li>
 </ul>
 
@@ -240,7 +305,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>La principal audiencia de este documento es el personal de la STPS, particularmente de la Dirección General de Investigación y Estadísticas del Trabajo (DGIET), la cual será responsable de mantener actualizado el SIDIL, particularmente en lo que respecta al procesamiento de datos para la producción de la Matriz de Predicción de Riesgo (MPR). De hecho, tanto el alcance del SIDIL, como el de este documento en general incorpora como un requisito la estrecha colaboración que se ha sostenido entre la Dirección de Estrategia e Innovación de AIR y la Dirección General de Investigación y Estadísticas del Trabajo (DGIET) de la STPS. Se han sostenido un gran número de sesiones de trabajo técnico y reuniones ejecutivas que, reflejando los intereses y capacidades de la STPS, dieron forma a la configuración actual del sistema.</p>
 <p>La estructura de este apartado sigue en buena medida el diseño modularizado del SIDIL. Se presentan las cuestiones generales del sistema, haciéndolo en dos diferentes niveles: por un lado para una audiencia menos técnica se detallan algunos aspectos sustantivos comunes a los diferentes elementos del sistema; por otro lado se presentan aquellas especificaciones que, si bien más técnicas, tienen implicaciones para los diferentes módulos del sistema y que se enuncian sólo una vez en esta sección para evitar su repetición en los capítulos restantes del documento. Del mismo modo se presentan los módulos en los que suceden todos los procesos para mantener actualizada la predicción de riesgos en diferentes submaterias a un universo de naturaleza dinámica de centros de trabajo consultados del Directorio Nacional de Empresas (DNE). También se ofrecen detalles del diseño y operación de la interfaz de consulta, que constituye el módulo III y que, tomando la Matriz de predicción de Riesgos (MPR), resultado del proesamiento, permite a un usuario de la UTD, seleccionar a los CT con base en la predicción de riesgo por submaterias, atributos observados e indicadores imputados a todos los CT que se encuentran en el DNE. Finalmente se presenta el modelo predictivo utilizado, mismo que emana de combinar los hallazgos de todas las inspecciones laborales realizadas por la UTD con todos los indicadores laborales calculados de manera histórica, según la disponibilidad temporal de las fuentes de información.</p>
 <div class="figure"><span style="display:block;" id="fig:pipelsimplaaificado2"></span>
-<img src="images-1/02/image2_alternativaTD.jpg" alt="Pipeline simplificado del SIDIL  (versión simplificada)" width="50%" />
+<img src="images-1/02/pipeline-simplificado.jpg" alt="Pipeline simplificado del SIDIL  (versión simplificada)" width="100%" />
 <p class="caption">
 Recuadro 2.1: Pipeline simplificado del SIDIL (versión simplificada)
 </p>
@@ -250,7 +315,7 @@ Recuadro 2.1: Pipeline simplificado del SIDIL (versión simplificada)
 <p><strong>El objetivo del SIDIL es construir una predicción de riesgo de incumplimiento a la normativa laboral vigente de los centros de trabajo de las empresas, a partir de la explotación de diferentes fuentes de información.</strong> De esta manera, con esta predicción de riesgo y otros indicadores y atributos asociados a los centros de trabajo, se pueden construir universos con mayor probabilidad de incumplimiento en determinadas submaterias que forman parte del alcance normativo de las inspecciones laborales.</p>
 <p>Para dicho objetivo, el SIDIL explota diferentes fuentes de información de una manera sistematizada. <strong>El SIDIL se basa en un conjunto ordenado y sincronizado de algoritmos (s,cripts) que a partir de información contenida en archivos de entrada (inputs) crea otros archivos de salida (outputs)</strong>, a partir de un proceso modularizado conectado.</p>
 <div class="figure"><span style="display:block;" id="fig:scriptinputoutput"></span>
-<img src="images-1/02/script_input_output.png" alt="Relación input-script-output" width="50%" />
+<img src="images-1/02/relacion-input-script-output.jpg" alt="Relación input-script-output" width="50%" />
 <p class="caption">
 Recuadro 2.2: Relación input-script-output
 </p>
@@ -262,7 +327,7 @@ Recuadro 2.2: Relación input-script-output
 <li><p>Catálogos: dan sentido, facilitan el mantenimiento e interpretación, y homologan los campos presentados en otras fuentes de información. Por ejemplo, las etiquetas asociadas al marco geoestadístico de municipios y entidades del país, producido por INEGI.</p></li>
 <li><p>Inputs que provienen de datos generados en una etapa anterior: por consistencia, el SIDIL, al procesar una fuente de información exógena, con o sin apoyarse en catálogos, genera outputs que, al ser parte de un sistema modularizado o compartimental, sirven de inputs para una siguiente etapa. Por ejemplo, el acervo de indicadores laborales generados a partir de la ENOE son un output del módulo I de actualización de indicadores - que sirve de input para el módulo de imputación de indicadores al universo de centros de trabajo, como se describirá más adelante.</p></li>
 </ul>
-<p><strong>Scripts</strong>: son documentos (textos) que contienen instrucciones para la ejecución de algoritmos de cómputo (secuencias de comandos) que instruyen a un procesador para cargar, transformar y generar información. Los scripts toman la información de los inputs y, mediante diversas operaciones transforman la información, generando outputs que servirán de insumo para etapas posteriores o como resultado final. En esencia los scripts conforman la médula espinal del SIDIL, toda vez que su contenido e interacción permite procesar la información de manera consistente a lo largo del tiempo. Existen varios tipos de scripts. Entre ellos hay algunos de carácter general y otros específicos para cada fuente de información. Los primeros se detallan en la sección 3.3, mientras que los segundos se profundizan en las secciones correspondientes de cada módulo.</p>
+<p><strong>Scripts</strong>: son documentos (textos) que contienen instrucciones para la ejecución de algoritmos de cómputo (secuencias de comandos) que instruyen a un procesador para cargar, transformar y generar información. Los scripts toman la información de los inputs y, mediante diversas operaciones transforman la información, generando outputs que servirán de insumo para etapas posteriores o como resultado final. En esencia los scripts conforman la médula espinal del SIDIL, toda vez que su contenido e interacción permite procesar la información de manera consistente a lo largo del tiempo. Existen varios tipos de scripts. Entre ellos hay algunos de carácter general y otros específicos para cada fuente de información. Los primeros se detallan en la <a href="elementosgenerales.html#estructurascripts">Estructura de Scripts</a>, mientras que los segundos se profundizan en las secciones correspondientes de cada módulo en el capítulo <a href="procesamiento.html#procesamiento">4. Procesamiento de las fuentes de información y generación de la MPR</a>.</p>
 <p><strong>Salidas o Outputs</strong>: Son resultado de aplicar uno o más scripts a una o más fuente de información o inputs. Contienen información considerada relevante, procesada, y estructurada para su interpretación humana o bien como un insumo para una próxima etapa en el SIDIL. Es decir, como referido anteriormente, un output de una etapa puede ser un input de otra etapa.</p>
 <p>A partir de los tres elementos presentados anteriormente: inputs, scripts y outputs, queda claro que el SIDIL es un sistema de procesamiento de información que descansa sobre la coherencia y consistencia entre estos tres elementos.</p>
 </div>
@@ -270,28 +335,30 @@ Recuadro 2.2: Relación input-script-output
 <h2><span class="header-section-number">2.2</span> Módulos que conforman el SIDIL<a href="estructura-y-flujos-de-trabajo-del-sidil.html#modulosqueconformanSIDIL" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En esta sección se describen de manera general los propósitos y procesos que se realizan en cada uno de los módulos del SIDL, a fin de ofrecer una explicación de sus principales características.</p>
 <p>Conviene enfatizar la importancia y motivación de tener un SIDIL compuesto por módulos diferenciados, ya que gracias a su modularidad el SIDIL es más sostenible, toda vez que aísla potenciales problemas en el procesamiento entre los diferentes módulos. Es decir, ante la eventual imposibilidad de correr un módulo, si bien puede implicar la no actualización de dicha información, no afecta la actualización de otros módulos.</p>
-<p>A su vez, la compartimentalización se observa, cuando es posible, al interior mismo de los módulos. Por ejemplo, si hubiera un cambio en uno de los campos de una fuente de información que impidiera el cálculo de cierto indicador, esto no inhibe la actualización de otros indicadores de dicha fuente de información.</p>
+<p>A su vez, la modularización se observa, cuando es posible, al interior mismo de los módulos. Por ejemplo, si hubiera un cambio en uno de los campos de una fuente de información que impidiera el cálculo de cierto indicador, esto no inhibe la actualización de otros indicadores de dicha fuente de información.</p>
 <p>Así mismo, la modularización abona a la facilidad de dar mantenimiento a los diferentes componentes del SIDIL. La ejecución de los módulos por separado (en contraste con una ejecución única de todos los módulos) hace que, de presentarse problemas o de ser necesarias una revisión, ésta pueda concentrarse en los módulos en donde fuera de interés sin afectar a los demás módulos. La modularización permite aprovechar posibles ventajas comparativas, áreas de especialización e incluso atribuciones heterogéneas al interior de la STPS, permitiendo limitar el acceso a ciertas carpetas o subcarpetas en las que se alojan los inputs o scripts de ciertos módulos.</p>
+<p>El SIDIL tiene cuatro módulos, tal como se muestra en el recuadro <a href="estructura-y-flujos-de-trabajo-del-sidil.html#fig:modulosSIDIL">2.3</a>: El <a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIexplicaciongeneral">primer módulo</a> es el de actualización de indicadores, mismo que explota las fuentes de información exógenas; el <a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIIexplicaciongeneral">segundo módulo</a> es el de consulta al universo de CT registrados en el DNE, la imputación de indicadores y de predicción de riesgo, que incorpora los resultados del módulo anterior. Estos dos módulos son operables a través de una <a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIyIIexplicaciongeneral">interfaz de automatización</a>, misma que a su vez permite de una manera muy simple, asegurando coherencia y consistencia, la incorporación y actualización de catálogos y fuentes de información.</p>
+<p>Así, la interfaz de automatización abarca el desarrollo de los procesos que están en color amarillo en esta ilustración. Luego, el tercer módulo es el de la <a href="#interfazConsultaexplicaciongeneral">interfaz de consulta</a>, que explota el principal resultado del módulo anterior (la Matriz de Predicción de Riesgos, MPR). Esta consulta está esquematizada en el área de color rojo tinto de la figura, y da como resultado un <em>listado de centros de trabajo priorizados</em>, listos para ser incorporados a la programación de inspecciones. Por último, el cuarto módulo, de entrenamiento, es el que permite reentrenar el modelo para actualizar la forma en la que se realizará la predicción. El módulo cuarto arroja un modelo predictivo entrenado (llamémoslo “parámetros del modelo”) que el módulo II consulta para la predicción del modelo sobre el universo de CT enriquecido con los indicadores.</p>
+<p>En resumen, cada uno de los módulos tiene un objetivo y alcance definido:</p>
+<ul>
+<li>Módulo I: explotación de fuentes de información para la actualización de indicadores laborales.</li>
+<li>Módulo II: imputación de los indicadores calculados más recientemente en el módulo anterior al universo de los CT obtenidos del DNE, para con ello poder aplicar el modelo entrenado que permite la actualización de la MPR.</li>
+<li>Interfaz de automatización de procesos: Es la interfaz que permite la actualización de insumos y catálogos y la ejecución de los procesos estipulados en los módulos I y II.</li>
+<li>Módulo III: Es la interfaz que permite a la DGIFT la consulta a la MPR para la priorización de los CT con base en las predicciones de riesgo, indicadores imputados a los CT y sus atributos. Notar que en este módulo no hay scripts para la explotación de datos.</li>
+<li>Módulo IV: Relaciona los antecedentes de inspección con la serie histórica de los indicadores laborales y atributos de los CT para entrenar un modelo de inteligencia artificial. Su producto es solamente el modelo entrenado, mismo que se aplica o implementa en el módulo II.</li>
+</ul>
 <div class="figure"><span style="display:block;" id="fig:modulosSIDIL"></span>
-<img src="images-1/02/pipeline_elaborado.png" alt="Módulos que componen el SIDIL" width="50%" />
+<img src="images-1/02/modulos-SIDIL.jpg" alt="Módulos que componen el SIDIL" width="100%" />
 <p class="caption">
 Recuadro 2.3: Módulos que componen el SIDIL
 </p>
 </div>
-<p>El SIDIL tiene cuatro módulos, tal como se muestra en el recuadro <a href="estructura-y-flujos-de-trabajo-del-sidil.html#fig:modulosSIDIL">2.3</a>: El <a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIexplicaciongeneral">primer módulo</a> es el de actualización de indicadores, mismo que explota las fuentes de información exógenas; el <a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIIexplicaciongeneral">segundo módulo</a> es el de consulta al universo de CT registrados en el DNE, la imputación de indicadores y de predicción de riesgo, que incorpora los resultados del módulo anterior. Estos dos módulos son operables a través de una <a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIyIIexplicaciongeneral">interfaz de automatización</a>, misma que a su vez permite de una manera muy simple, asegurando coherencia y consistencia, la incorporación y actualización de catálogos y fuentes de información.</p>
-<p>Así, la interfaz de automatización abarca el desarrollo de los procesos que están en color azul en esta ilustración. Luego, el tercer módulo es el de la <a href="#interfazConsultaexplicaciongeneral">interfaz de consulta</a>, que explota el principal resultado del módulo anterior (la Matriz de Predicción de Riesgos, MPR). Esta consulta está esquematizada en el área verde de la figura, y da como resultado un <em>listado de centros de trabajo priorizados</em>, listos para ser incorporados a la programación de inspecciones. Por último, el cuarto módulo, de entrenamiento, es el que permite reentrenar el modelo para actualizar la forma en la que se realizará la predicción. El módulo cuarto arroja un modelo predictivo entrenado (llamémoslo “parámetros del modelo”) que el módulo II consulta para la predicción del modelo sobre el universo de CT enriquecido con los indicadores. A continuación, se ofrecen las principales características de estos módulos.</p>
-<!-- Recuadro 1:  -->
-<!-- >El SIDIL está compuesto por diferentes módulos. Adicional a las ventajas mencionadas, conviene enfatizar que el SIDIL permite a los usuarios actualizar los diferentes módulos por separado. Esto es, diferentes usuarios (supongamos, especializados por fuentes de información) pueden, en distintos momentos del tiempo, actualizar un módulo sin necesidad de realizar la actualización de los demás módulos en el mismo momento. Esto, si bien no se reflejará en una actualización de la matriz de predicción de riesgos a menos que se actualice el módulo II, permite dividir las tareas entre diferentes personas. -->
-<!-- >En ese sentido, una situación que podría ocurrir es la siguiente: el módulo I se actualiza cada tres meses. Pero en el caso del módulo II, al depender del universo de CT registrado en el DNE, puede ameritar actualizarse con mayor frecuencia, toda vez que dicho registro administrativo está en constante cambio (nuevos CT que se incorporan o modificaciones que se realizan a CT preexistentes). No es necesario (ni abonaría nuevos indicadores) volver a correr el módulo I porque el DNE haya sufrido cambios. La información sería la misma. -->
-<!-- >De la misma manera, la modularización permite aislar la tarea más compleja del SIDIL: la actualización del módulo IV de entrenamiento del modelo. Esta tarea es la más intensiva en tiempo, toma de decisiones y acceso a información a la vez que, de mantenerse el mismo modelo, no resultaría en sustantivas diferencias si la actualización se realizara con elevada frecuencia. -->
-<!-- <div class="note-box"> -->
 <div class="figure"><span style="display:block;" id="fig:modularizacionSIDIL"></span>
-<img src="images-1/important-icon.svg" alt="Modularización del SIDIL" width="50px" style="float:left; background-color: #f5f5f5; padding-right:1em" />
+<img src="images-1/important-icon.svg" alt="Modularización del SIDIL" width="50px" style="float:left; background-color: #fff; padding-right:1em" />
 <p class="caption">
 Recuadro 2.4: Modularización del SIDIL
 </p>
 </div>
-<!-- </div> -->
 <div class="rmdcomment">
 <p>
 El SIDIL está compuesto por diferentes módulos. Adicional a las
@@ -323,54 +390,61 @@ resultaría en sustantivas diferencias si la actualización se realizara
 con elevada frecuencia.
 </p>
 </div>
+<p>A continuación, se ofrecen las principales características de estos módulos.</p>
 <div id="moduloIexplicaciongeneral" class="section level3 unnumbered hasAnchor">
 <h3>Módulo I: actualización de indicadores<a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIexplicaciongeneral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En este módulo se explotan las diversas fuentes de información que sirven como input. <strong>El objetivo de este módulo es poder medir fenómenos laborales a través de indicadores que permiten caracterizar las condiciones vigentes en los centros de trabajo.</strong> Para tal fin los scripts extraen y transforman los inputs para mantener actualizados dichos indicadores. Es en este módulo en donde, a futuro, es posible agregar o quitar indicadores laborales según surjan nuevas fuentes de información o entren en desuso otras.</p>
 <p>Todas las estimaciones puntuales (valores) de los indicadores se calculan para diferentes “niveles de agregación”: <em><strong>entiéndase por nivel de agregación aquella combinación de campos de tamaño del centro de trabajo, clasificación industrial y ubicación geográfica que caracterizan a cada centro de trabajo.</strong> Hay 18 niveles de agregación según se incorporen estos campos. A mayor combinación de campos y/o especificidad en la utilización de los mismos, mayor es el nivel de agregación y más específica es la estimación puntual. Para más información consultar la sección 4.1.3.1 de este documento.</em></p>
-<p>[@@ idea videocapsula:</p>
-<p>breve tour por el catalogo de indicadores, mostrando como de lo más básico (promedio nacional) llegas a lo más granular: 3_geo5_act3_tam ]{.mark}</p>
-<div class="figure"><span style="display:block;" id="fig:utilidadestimacionespuntuales"></span>
-<img src="images-1/important-icon.svg" alt="El aprovechamiento de los niveles de agregación en el cálculo de indicadores." width="50px" style="float:left; background-color: #f5f5f5; padding-right:1em" />
+<!-- [@@ idea videocapsula: breve tour por el catalogo de indicadores, mostrando como de lo más básico (promedio nacional) llegas a lo más granular: 3_geo5_act3_tam ]{.mark} -->
+<div class="figure"><span style="display:block;" id="fig:aprovechamientoNivelesAgregacion"></span>
+<img src="images-1/01/aprovechamientoNivelesAgregacion.jpg" alt="El aprovechamiento de los niveles de agregación en el cálculo de indicadores" width="100%" />
 <p class="caption">
-Recuadro 2.5: El aprovechamiento de los niveles de agregación en el cálculo de indicadores.
+Recuadro 2.5: El aprovechamiento de los niveles de agregación en el cálculo de indicadores
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:utilidadestimacionespuntuales"></span>
+<img src="images-1/important-icon.svg" alt="El aprovechamiento de los niveles de agregación en el cálculo de indicadores." width="50px" style="float:left; background-color: #fff; padding-right:1em" />
+<p class="caption">
+Recuadro 2.6: El aprovechamiento de los niveles de agregación en el cálculo de indicadores.
 </p>
 </div>
 <div class="rmdcomment">
 <p>
 Sirve dar un ejemplo de la utilidad de calcular las estimaciones
-puntuales de los indicadores a diferentes niveles de agregación: Para el
-cálculo de la media de la tasa de prevalencia de asalariados percibiendo
-hasta 105% del salario mínimo (uno de los indicadores desarrollados) a
-nivel nacional, el promedio asciende a 12.8% de los puestos asegurados.
-Esto significa que casi 13% de los asegurados en el IMSS perciben hasta
-105% del salario mínimo. Este es el promedio nacional y es el nivel de
-agregación de menor granularidad o especificidad. Pero detrás de este
-promedio hay una elevada heterogeneidad: tan solo observando el
-siguiente nivel de agregación que distingue por categoría de tamaño se
-percibe que los centros de trabajo (CT) de hasta 10 personas aseguradas
-tienen una prevalencia del 21.7%, mientras que las de 251 o más
-asegurados se reduce a 0.77%. Si además a los CT de menor tamaño se les
-distingue por la clasificación industrial a dos dígitos, se estima que
-aquellas en la categoría industrial SCIAN: 11 (Agricultura, cría y
-explotación de animales) tienen un promedio de 21.3% pero las SCIAN 21
-(minería) un promedio de 16.9%. Este último nivel de agregación ya
-recupera la información de dos campos (tamaño y clasificación industrial
-a dos dígitos), pero puede profundizarse aún más incorporando la
-dimensión geográfica (entidad federativa y municipio) y además llevar a
-3 dígitos la clasificación industrial. De esta manera, a mayor
-incorporación de dimensiones, o mientras más específicas sean éstas más
-preciso es el dato. A mayor precisión, mayor la posible heterogeneidad
-en la caracterización de los CT y mayor poder predictivo de los
-indicadores (sobre este punto se ofrecen más detalles en la sección
-6).
+puntuales de los indicadores a diferentes niveles de agregación:
+</p>
+<p>
+Para el cálculo de la media de la tasa de prevalencia de asalariados
+percibiendo hasta 105% del salario mínimo (uno de los indicadores
+desarrollados) a nivel nacional, el promedio asciende a 12.8% de los
+puestos asegurados. Esto significa que casi 13% de los asegurados en el
+IMSS perciben hasta 105% del salario mínimo. Este es el promedio
+nacional y es el menor nivel de agregación de o especificidad. Pero
+detrás de este promedio hay una elevada heterogeneidad: tan solo
+observando el siguiente nivel de agregación que distingue por categoría
+de tamaño se percibe que los centros de trabajo (CT) de hasta 10
+personas aseguradas tienen una prevalencia del 21.7%, mientras que las
+de 251 o más asegurados se reduce a 0.77%. Si además a los CT de menor
+tamaño se les distingue por la clasificación industrial a dos dígitos,
+se estima que aquellas en la categoría industrial SCIAN: 11
+(Agricultura, cría y explotación de animales) tienen un promedio de
+21.3% pero las SCIAN 21 (minería) un promedio de 16.9%. Este último
+nivel de agregación ya recupera la información de dos campos (tamaño y
+clasificación industrial a dos dígitos), pero puede profundizarse aún
+más incorporando la dimensión geográfica (entidad federativa y
+municipio) y además llevar a 3 dígitos la clasificación industrial. De
+esta manera, a mayor incorporación de dimensiones, o mientras más
+específicas sean éstas más preciso es el dato. <strong>A mayor
+precisión, mayor la posible heterogeneidad en la caracterización de los
+CT y mayor poder predictivo de los indicadores</strong>.
 </p>
 </div>
 <p>El cálculo de un determinado indicador se realiza para cada uno de los diferentes niveles de agregación. Esto para permitir que a un CT se le pueda imputar una mejor estimación de riesgo si se conoce con mayor detalle sus características de tamaño, industria y geografía, pero que, en caso de ausencia de alguna de ellas se le atribuya una medida de una agrupación más general. Esto permite aprovechar al máximo la información disponible.</p>
-<p>Esto significa que, si la estructura de información del input lo permite, la información se explota al máximo nivel de granularidad y cobertura posible. En concreto, y para poner un ejemplo: de la ENOE se calcula la tasa de sindicalización (con el cuestionario ampliado del primer trimestre de cada año) para todas las posibles combinaciones de entidad federativa, clasificación industrial a dos y tres dígitos del SCIAN y categorías de tamaño, independientemente de que para ciertas combinaciones de estos tres campos no hubiera CT que “requieran” dicha caracterización. Es decir, podría ser el caso de que se calcule para la categoría industrial 111 en la entidad federativa 1 y categoría de tamaño 1 dicho indicador, incluso aunque, por diferentes motivos, el DNE no tenga a ningún CT con dichas características.^[De manera análoga, dado que el SIDIL explota registros administrativos del IMSS y calcula ciertos indicadores a nivel <em>registro</em> patronal, cabe observar que los indicadores se calculan para todos los registros patronales, independientemente de que éstos sean “encontrados” en el DNE.] De esta manera, dada la posibilidad de que en cualquier momento se incorporen nuevos CT al DNE con esta o cualquier otra combinación de información, se tiene a disposición la información en todos los niveles de agregación para su eventual aprovech</p>
+<p>Esto significa que, si la estructura de información del input lo permite, la información se explota al máximo nivel de granularidad y cobertura posible. En concreto, y para poner un ejemplo: de la ENOE se calcula la tasa de sindicalización (con el cuestionario ampliado del primer trimestre de cada año) para todas las posibles combinaciones de entidad federativa, clasificación industrial a dos y tres dígitos del SCIAN y categorías de tamaño, independientemente de que para ciertas combinaciones de estos tres campos no hubiera CT que “requieran” dicha caracterización. Es decir, podría ser el caso de que se calcule para la categoría industrial 111 en la entidad federativa 1 y categoría de tamaño 1 dicho indicador, incluso aunque, por diferentes motivos, el DNE no tenga a ningún CT con dichas características.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> De esta manera, dada la posibilidad de que en cualquier momento se incorporen nuevos CT al DNE con esta o cualquier otra combinación de información, se tiene a disposición la información en todos los niveles de agregación para su eventual aprovechamiento.</p>
 <div class="figure"><span style="display:block;" id="fig:aprovechamientonivelesagregacion"></span>
-<img src="images-1/important-icon.svg" alt="El aprovechamiento de los niveles de agregación en el cálculo de indicadores (segunda parte)" width="50px" style="float:left; background-color: #f5f5f5; padding-right:1em" />
+<img src="images-1/important-icon.svg" alt="El aprovechamiento de los niveles de agregación en el cálculo de indicadores (segunda parte)" width="50px" style="float:left; background-color: #fff; padding-right:1em" />
 <p class="caption">
-Recuadro 2.6: El aprovechamiento de los niveles de agregación en el cálculo de indicadores (segunda parte)
+Recuadro 2.7: El aprovechamiento de los niveles de agregación en el cálculo de indicadores (segunda parte)
 </p>
 </div>
 <div class="rmdcomment">
@@ -379,7 +453,7 @@ Con lo mencionado sobre el módulo de actualización de indicadores se
 permite anticipar los elementos más importantes en la estrategia y
 operacionalización del “matching” o imputación de indicadores laborales
 al universo de centros de trabajo (que se informa a mayor detalle en el
-capítulo 4.2.5): el acervo de estimaciones puntuales (por ejemplo la
+capítulo 4.2.5): El acervo de estimaciones puntuales (por ejemplo la
 media de acceso a la seguridad social) calculada para toda la
 combinación posible de tamaño, clasificación industrial y ubicación
 geográfica, es imputado a los CT a partir de un algoritmo que identifica
@@ -396,9 +470,9 @@ industrial y geografía posible.
 <p><strong>Los indicadores se expresan en el mismo sentido ordinal, donde “más es mejor”, a excepción de cuando se encuentran en la MPR, como se verá más adelante:</strong> todos los indicadores miden un fenómeno laboral que inherentemente reflejan una violación a un derecho laboral, o en última instancia, un juicio de valor. A menor valor absoluto de un indicador, mayor incumplimiento al derecho laboral, o en peores condiciones (de eso que se mide) están las personas trabajadoras. Por ejemplo, el acceso a la seguridad social cercano a 100% indica una elevada tasa de formalización de la relación laboral, mientras que cercano a 0% se acerca a la informalidad absoluta.</p>
 <p><strong>En la construcción de la MPR (siguiente módulo), y a efectos de darle el mismo sentido que la predicción de la probabilidad de incumplimiento con la normativa laboral, el sentido de los indicadores se invierte.</strong> Es decir, los indicadores que hasta ese momento expresan “más es mejor” se invierten para reflejar que “más es peor”. Esto facilita la interpretación y el uso de los mismos como variables de selección y filtrado a la hora de explotar la MPR en la interfaz de priorización. De esta manera, al filtrar, tanto los predictores de riesgo generados a partir del modelo entrenado, como los indicadores calculados a partir de las fuentes de datos tienen la lógica de que un valor más cercano a 1 representa un mayor riesgo de violaciones.</p>
 <div class="figure"><span style="display:block;" id="fig:sentidoindicadores"></span>
-<img src="images-1/important-icon.svg" alt="El sentido de los indicadores" width="50px" style="float:left; background-color: #f5f5f5; padding-right:1em" />
+<img src="images-1/important-icon.svg" alt="El sentido de los indicadores" width="50px" style="float:left; background-color: #fff; padding-right:1em" />
 <p class="caption">
-Recuadro 2.7: El sentido de los indicadores
+Recuadro 2.8: El sentido de los indicadores
 </p>
 </div>
 <div class="rmdcomment">
@@ -421,6 +495,13 @@ estandarización y posterior inversión).
 <p><strong>En este módulo también se mantiene actualizada una base que registra la información más básica de los patrones registrados ante el IMSS, a efectos del enriquecimiento de la consulta del DNE (ver siguiente módulo).</strong> Esto es adicional al acervo de estimaciones puntuales por registro patronal que se mencionó en el párrafo anterior.</p>
 <p>En acuerdo con la DGIET, <strong>se propone que este módulo se actualice cada tres meses</strong>, toda vez que es la frecuencia con la cual se actualiza uno de los principales insumos (la ENOE del INEGI). Pero dado que los inputs del IMSS se actualizan mensualmente (y se calcula un promedio móvil de los últimos tres meses disponibles) tendría sentido hacerlo hasta una vez por mes si se desea.</p>
 <p><strong>Así, el módulo I constituye la <u>oferta</u> de estimaciones puntuales de los indicadores del SIDIL</strong>, que posteriormente serán imputados (de manera nominativa o por nivel de agregación, según sea al caso) a los centros de trabajo disponibles en el DNE.</p>
+<p>El resultado del módulo I son diversas tablas en formato .Rds que contienen las estimaciones puntuales de todos los indicadores de todas las fuentes de información, así como la información sobre los niveles de agregación e información complementaria del cálculo.</p>
+<div class="figure"><span style="display:block;" id="fig:MPRcomplementaria"></span>
+<img src="images-1/02/MPR_complementaria.jpg" alt="TInformación en las tablas de indicadores calculados en el Módulo I"  />
+<p class="caption">
+Recuadro 2.9: TInformación en las tablas de indicadores calculados en el Módulo I
+</p>
+</div>
 </div>
 <div id="moduloIIexplicaciongeneral" class="section level3 unnumbered hasAnchor">
 <h3>Módulo II: Consulta al universo de CT, imputación de indicadores y predicción de riesgo<a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIIexplicaciongeneral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -428,11 +509,17 @@ estandarización y posterior inversión).
 <p><strong>Si el módulo I constituye la “oferta” de indicadores, el módulo II, particularmente el universo de CT registrados en el DNE, representa la “demanda” de los mismos</strong>. Son las características de los CT en el DNE las que determinan cuáles estimaciones puntuales de cada indicador serán imputadas a cada CT, notando que, en última instancia, de no poder caracterizar a un CT en ninguna de las tres dimensiones (clasificación industrial, geografía o tamaño) se le asignará el promedio a nivel nacional. Siguiendo con la analogía, la oferta y la demanda se encuentran justo en el punto que determina el algoritmo de matching coyuntural, es decir, la imputación de las estimaciones a los CT.</p>
 <p>Como se menciona en la sección anterior, en aquellos campos de las tres dimensiones (geografía, tamaño e industria) el SIDIL consulta la información más actualizada disponible en el IMSS para que, en caso de que no estuviera el dato disponible en el DNE, se les impute dicha información (a efectos del SIDIL únicamente, no se modifican registros en el DNE, sino solamente en el resultado de la consulta a dicho directorio que utiliza el SIDIL). Esto permite “refinar” el nivel de agregación al que potencialmente se le imputan las estimaciones puntuales de los diversos indicadores a los CT. Por ejemplo, un CT puede no tener registrado el número de trabajadores en el DNE, en consecuencia, no sería posible tomar en consideración los niveles de agregación que requiere la estimación puntual por categoría de tamaño. Sin embargo, gracias a este procedimiento de enriquecimiento, si a través del registro patronal es posible identificar a este CT en las bases del IMSS, se le asigna el campo tamaño (contando el número de trabajadores registrados en el mismo) para imputarle una estimación puntual con el mayor nivel de agregación posible que incluya el tamaño como dimensión. Asimismo, a partir de esta identificación univoca de los CT en las bases del IMSS y del DNE, se realiza la imputación nominativa de los indicadores del IMSS.</p>
 <p>Además, el SIDIL prevé una consulta al SIAPI y al SIPAS en caso de que la información contenida en el DNE no estuviera completa o estuviera actualizada. Dado que el SIAPI y SIPAS están en un proceso de desarrollo, por ahora este aspecto no se enfatiza en el manual. Pero un ejemplo de esta información podría ser el cálculo del porcentaje de inspecciones a un CT que terminaron en negativas patronales, en caso de que esto fuera de interés para la STPS para explotar en la interfaz.</p>
-<p><mark>AQU POSIBLEMENTE CONVIENE INCORPORAR UNA ILUSTRACION SOBRE RELACION SIAPI SIPAS, DNE Y SIDIL</mark></p>
-<div class="figure"><span style="display:block;" id="fig:relacionDNESNILESIAPISIPAS"></span>
-<img src="images-1/important-icon.svg" alt="Relación DNE-SNILE-SIAPI-SIPAS con el matching nominativo del IMSS" width="50px" style="float:left; background-color: #f5f5f5; padding-right:1em" />
+<div class="figure"><span style="display:block;" id="fig:resumenModII"></span>
+<img src="images-1/02/resumenModII.jpg" alt="Explicación general Módulo II" width="100%" />
 <p class="caption">
-Recuadro 2.8: Relación DNE-SNILE-SIAPI-SIPAS con el matching nominativo del IMSS
+Recuadro 2.10: Explicación general Módulo II
+</p>
+</div>
+<!-- [@@ PENDIENTE AQU POSIBLEMENTE CONVIENE INCORPORAR UNA ILUSTRACION SOBRE RELACION SIAPI SIPAS, DNE Y SIDIL]{.mark} -->
+<div class="figure"><span style="display:block;" id="fig:relacionDNESNILESIAPISIPAS"></span>
+<img src="images-1/important-icon.svg" alt="Relación DNE-SNILE-SIAPI-SIPAS con el matching nominativo del IMSS" width="50px" style="float:left; background-color: #fff; padding-right:1em" />
+<p class="caption">
+Recuadro 2.11: Relación DNE-SNILE-SIAPI-SIPAS con el matching nominativo del IMSS
 </p>
 </div>
 <div class="rmdcomment">
@@ -457,25 +544,91 @@ de trabajadores, estén o no registrados ante el IMSS.
 <li><p>Segundo, se le imputan indicadores de manera nominativa, cuando aplique y siempre que fuera posible, a través del campo registro patronal, identificar a un CT del DNE en las bases del IMSS. A esto se le llama <em>imputación nominativa</em>.</p></li>
 <li><p>Tercero, para todos los CT y todos los indicadores a los que no fue posible realizarle una imputación nominativa, se le imputa un valor de todos los indicadores por nivel de <em>agregación</em> según la información disponible de cada CT.</p></li>
 </ul>
-<p>Hasta aquí se obtiene el universo de los CT extraído del DNE y enriquecido con las estimaciones puntuales de todos los indicadores disponibles.</p>
-<p><strong>A partir de los indicadores imputados a cada uno de los CT, y con base en el modelo entrenado (ver módulo IV) se calculará el riesgo de incumplimiento de cada uno de ellos por submateria.</strong> La información de indicadores, para cada uno de los CT del universo, se utiliza como insumo para el cálculo de factores que permitirán la predicción del riesgo de incumplimiento en cada una de las submaterias de las Condiciones Generales de Trabajo a través de la <strong>aplicación del modelo</strong> (previamente entrenado^[Conviene enfatizar que no es en este módulo donde se entrena el modelo, ya que eso forma parte del módulo IV, en este caso sólo se aplica el modelo previamente entrenado.) para predecir y atribuir un factor de riesgo de incumplimiento a cada centro de trabajo para cada submateria.</p>
-<p>El resultado final de este módulo es la <strong>Matriz de Predicción de Riesgos</strong> (MPR), misma que se analiza en mucho más detalle en la sección. 3.10. Aquí conviene mencionar que la MPR tiene tantas filas como centros de trabajo registrados en el DNE y el número de columnas dependerá de la disponibilidad de indicadores, del número de atributos que se consulten al DNE (cuando menos serán aquellos campos de geografía, clasificación industrial y tamaño) y del número de submaterias sobre las cuales se realiza una predicción de riesgo, como muestra el recuadro <a href="estructura-y-flujos-de-trabajo-del-sidil.html#fig:MPRsimplificada">2.9</a> a continuación.</p>
-<div class="figure"><span style="display:block;" id="fig:MPRsimplificada"></span>
-<img src="images-1/02/MPR_simplificada.png" alt="Matriz de predicción de riesgos (ilustración simplificada)"  />
+<div class="figure"><span style="display:block;" id="fig:matchingnominativoagregacion"></span>
+<img src="images-1/02/matchingnominativoagregacion.jpg" alt="matchingnominativoagregacion" width="100%" />
 <p class="caption">
-Recuadro 2.9: Matriz de predicción de riesgos (ilustración simplificada)
+Recuadro 2.12: matchingnominativoagregacion
 </p>
 </div>
+<p>Hasta aquí se obtiene el universo de los CT extraído del DNE y enriquecido con las estimaciones puntuales de todos los indicadores disponibles.</p>
+<p><strong>A partir de los indicadores imputados a cada uno de los CT, y con base en el modelo entrenado (ver módulo IV) se calculará el riesgo de incumplimiento de cada uno de ellos por submateria.</strong> La información de indicadores, para cada uno de los CT del universo, se utiliza como insumo para el cálculo de factores que permitirán la predicción del riesgo de incumplimiento en cada una de las submaterias de las Condiciones Generales de Trabajo a través de la <strong>aplicación del modelo</strong> (previamente entrenado^[Conviene enfatizar que no es en este módulo donde se entrena el modelo, ya que eso forma parte del módulo IV, en este caso sólo se aplica el modelo previamente entrenado.) para predecir y atribuir un factor de riesgo de incumplimiento a cada centro de trabajo para cada submateria.</p>
+<p>El resultado final de este módulo es la <strong>Matriz de Predicción de Riesgos</strong> (MPR), misma que se analiza en mucho más detalle en la sección. 3.10. Aquí conviene mencionar que la MPR tiene tantas filas como centros de trabajo registrados en el DNE y el número de columnas dependerá de la disponibilidad de indicadores, del número de atributos que se consulten al DNE (cuando menos serán aquellos campos de geografía, clasificación industrial y tamaño) y del número de submaterias sobre las cuales se realiza una predicción de riesgo, como muestra el recuadro <a href="estructura-y-flujos-de-trabajo-del-sidil.html#fig:MPRsimplificada">2.13</a> a continuación.</p>
+<div class="figure"><span style="display:block;" id="fig:MPRsimplificada"></span>
+<img src="images-1/02/MPR_simplificada.jpg" alt="Matriz de predicción de riesgos (ilustración simplificada)"  />
+<p class="caption">
+Recuadro 2.13: Matriz de predicción de riesgos (ilustración simplificada)
+</p>
 </div>
-<div id="moduloIyIIexplicaciongeneral" class="section level3 unnumbered hasAnchor">
-<h3>Módulos I y II: operables desde la interfaz de automatización<a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIyIIexplicaciongeneral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure"><span style="display:block;" id="fig:motivosparaactualizarMPR"></span>
+<img src="images-1/important-icon.svg" alt="La utilidad de los secuenciadores" width="50px" style="float:left; background-color: #fff; padding-right:1em" />
+<p class="caption">
+Recuadro 2.14: La utilidad de los secuenciadores
+</p>
+</div>
+<div class="rmdcomment">
+<p>
+¿Bajo qué circunstancias es importante actualizar la MPR? Sin ignorar
+el hecho de que el universo de CT registrados en el DNE puede variar día
+a día (todos los días se podría estar incorporando un nuevo CT), pueden
+distinguirse tres circunstancias específicas en las cuales se vuelve
+realmente importante actualizar la MPR:
+</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>
+Cuando existen variaciones sustantivas en los valores
+coyunturales de las estimaciones puntuales de los indicadores laborales
+calculados en el módulo I. Esto por ejemplo, se vuelve crítico cuando se
+presentan cambios abruptos en el mercado laboral (por ejemplo, en la
+reciente pandemia), pero también es importante reconocer cierta
+ciclicidad de algunos indicadores o algunos efectos de cambios en la
+política laboral. Un claro ejemplo de esto es el cálculo de la
+prevalencia de asalariados percibiendo cerca de un salario mínimo, lo
+cual, presenta un salto discreto al inicio de cada año. Por lo anterior,
+dada la frecuencia de publicación de las actualizaciones de la ENOE, se
+sugiere que, sólo desde esta perspectiva, la MPR se actualice cada tres
+meses.
+</p>
+</li>
+<li>
+<p>
+Cuando se ha realizado un nuevo entrenamiento del modelo en el
+módulo IV. Esto podría haber sido producto de una recalibración del
+mismo, la necesidad de predecir sobre nuevas submaterias, etc. mismo
+que, de no volver a predecir la MPR, no será reflejado en la
+misma.
+</p>
+</li>
+<li>
+<p>
+Cuando se presenten cambios sustantivos en el número y la
+composición de los CT registrados en el DNE. Esto pudiera ser por
+incorporaciones o depuraciones masivas en el mismo, cambios en la
+generación de algunos campos, o simplemente, el natural paso del tiempo
+y crecimiento en el número de registros allí encontrados.
+</p>
+</li>
+</ol>
+<p>
+En cualquiera de estas tres circunstancias se vuelve importante sino
+imprescindible volver a correr todos los scripts que se relacionen con
+el origen de dichos cambios: a) si hay cambios o actualizaciones en la
+ENOE, correr el módulo I (script secuenciador de la ENOE) y todos los
+posteriores que se encuentran en el módulo II, b) si hay cambios en el
+módulo IV, volver a correr el módulo II (script de predicción de
+riesgos), c) si hay cambios en la composición del universo de CT, todos
+los scripts del módulo II.
+</p>
+</div>
+<div id="moduloIyIIexplicaciongeneral" class="section level4 unnumbered hasAnchor">
+<h4>Módulos I y II: operables desde la interfaz de automatización<a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIyIIexplicaciongeneral" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>La interfaz de automatización permite que, bajo circunstancias normales, es decir, sin la necesidad de corregir los algoritmos de cálculo, se puedan mantener actualizados los productos de los módulos I y II sin necesidad de ejecutar los algoritmos desde la consola del software de análisis R Studio</strong>, sino desde una interfaz amigable y simplificada que ejecuta los mismos procesos que se correrían manualmente desde R Studio. A dicha interfaz también se le agregó la funcionalidad de incorporar actualizaciones a las fuentes de información (por ejemplo, un nuevo trimestre de la ENOE) o a los catálogos que permiten la adecuada explotación de los insumos a través de parámetros configurables. Esto permite que la interfaz mantenga actualizados los productos módulos I y II, y que esto se realice, en circunstancias normales, por personal que no requiere de acceso o conocimiento profundo de un software especializado. La interfaz permite actualizar los insumos del cálculo, modificar sus parámetros principales y seleccionar cuáles procesos se quieren ejecutar a fines de actualizar los productos, todo el tiempo reportando en una consola los principales avances de dichos procesos, para seguimiento del usuario que lo ejecuta.</p>
 <p><strong>En el proceso de la actualización de los módulos I y II desde esta interfaz, en la consola de procesamiento se presenta solamente la información más ejecutiva sin abundar en todo el detalle técnico del procesamiento de información.</strong> Esto implica, que: a) la interfaz permite la ejecución automatizada de los códigos del módulo I y II, más no exime de la responsabilidad de analizar los resultados reportados en su consola; y b) la interfaz no presenta toda la información que un usuario más técnico pudiera requerir para su análisis y comprensión de los procedimientos ejecutados, la que se encuentran en las bitácoras de cada proceso, también accesibles para un usuario más avanzado. Por último, realizadas las principales actualizaciones, la interfaz permite la descarga de la MPR más reciente y enviarla a la interfaz de consulta, poniendo así la MPR a disposición del otro tipo de usuario del SIDIL, el personal de la UTD, para la priorización de CT conforme a las estrategias de selección que se presenten.</p>
 <p><strong>En contraste con la interfaz de consulta (ver más adelante), esta interfaz, si bien facilita la ejecución de los módulos I y II, sí requiere de cierto conocimiento técnico</strong> – estadístico en cuanto a que algunos de los mensajes que se reportan en su consola, si bien sólo se reportan a título informativo y no se espera una aprobación explícita del usuario, permiten a un usuario informado determinar que los resultados obtenidos guardan sentido. Por ejemplo, en un momento determinado la actualización de los indicadores del IMSS reporta el porcentaje que las mujeres representan en el total de personas aseguradas. Un usuario informado sabe que aproximadamente este porcentaje se ubica alrededor del 40% y que cualquier desviación sustantiva de dicho porcentaje pudiera implicar que la identificación del sexo a partir de la CURP de las personas aseguradas no resultó satisfactoria o que hubo algún problema en el procesamiento realizado. De manera análoga, un usuario experimentado conoce el total de personas ocupadas que se estiman a partir de la ENOE (y sabe cómo validar esta estimación en el portal del INEGI), por lo que cualquier desviación sustantiva de una estimación normal tendría que llamarle la atención, ameritar la interrupción del proceso e iniciar una revisión exhaustiva a nivel código para encontrar la solución a dicho error de cálculo.</p>
 <div class="figure"><span style="display:block;" id="fig:utilizacioninterfazauto"></span>
-<img src="images-1/important-icon.svg" alt="La utilización de la interfaz de automatización" width="50px" style="float:left; background-color: #f5f5f5; padding-right:1em" />
+<img src="images-1/important-icon.svg" alt="La utilización de la interfaz de automatización" width="50px" style="float:left; background-color: #fff; padding-right:1em" />
 <p class="caption">
-Recuadro 2.10: La utilización de la interfaz de automatización
+Recuadro 2.15: La utilización de la interfaz de automatización
 </p>
 </div>
 <div class="rmdcomment">
@@ -484,7 +637,7 @@ La interfaz de automatización permite a un usuario mantener
 actualizados los productos de los módulos I y II sin necesidad de
 ejecutar los algoritmos desde la consola del software R. De hecho, no
 requiere tener instalado el software R ni R Studio localmente, toda vez
-que la operación de dicha interfaz se realiza desde una conexión WEB a
+que la operación de dicha interfaz se realiza desde una conexión web a
 un servidor. Algunas de las condiciones que deben darse para que la
 actualización de estos módulos desde la interfaz sea satisfactoria
 son:
@@ -528,8 +681,9 @@ que el requerido para abrir y ejecutar el código en una consola.
 </p>
 </div>
 </div>
-<div id="módulo-iii-consulta-de-la-mpr-para-priorización-de-ct-a-inspeccionar" class="section level3 hasAnchor" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Módulo III: Consulta de la MPR para priorización de CT a inspeccionar<a href="estructura-y-flujos-de-trabajo-del-sidil.html#módulo-iii-consulta-de-la-mpr-para-priorización-de-ct-a-inspeccionar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="moduloIIIConsultaMPR" class="section level3 unnumbered hasAnchor">
+<h3>Módulo III: Consulta de la MPR para priorización de CT a inspeccionar<a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIIIConsultaMPR" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En el módulo de consulta se explota la información contenida en la Matriz de Predicción de Riesgo (MPR). Se realiza a través de una interfaz interactiva, permitiendo al usuario escoger y ponderar diferentes campos para acotar y priorizar el universo de CT disponible en el DNE para logar un subconjunto de ellos que cumplen determinados criterios. Los CT en dicho subconjunto cumplen con características que reflejan la estrategia de inspección que se quiere desarrollar. Típicamente constituirán este subconjunto aquellos CT de mayor probabilidad de incumplimiento en cierta submateria y que además cumplen con los criterios impuestos a otras variables que los caracterizan.</p>
 <p><strong>La utilización de esta interfaz no requiere conocimientos avanzados de estadística ni de econometría</strong>: si bien el SIDIL es un proceso intensivo en datos, su producto final, la MPR, es explotado por el área de programación de las inspecciones a través de una interfaz amigable que permite reflejar prioridades estratégicas propias del proceso de planeación, particularmente aquellas que se dan en el marco de operativos de un alcance específico.</p>
 <p>La interfaz permite al usuario:</p>
@@ -542,8 +696,16 @@ que el requerido para abrir y ejecutar el código en una consola.
 <li><p>Indicadores calculados a partir de las diferentes fuentes de información. En esencia, todos aquellos calculados en el módulo I y asignados a los CT a partir de los primeros dos pasos del módulo II.</p></li>
 </ol></li>
 </ol>
-<p><u><strong>Módulo IV: Entrenamiento del modelo</strong></u></p>
+</div>
+<div id="moduloIVEntrenamientoModelo" class="section level3 unnumbered hasAnchor">
+<h3>Módulo IV: Entrenamiento del modelo<a href="estructura-y-flujos-de-trabajo-del-sidil.html#moduloIVEntrenamientoModelo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Este módulo tiene como propósito entrenar el modelo predictivo para actualizar sus valores y posteriormente aplicarlos a la predicción que se realiza sobre el universo de CT enriquecido con indicadores coyunturales. A tal fin, en este módulo se realiza la explotación histórica de todas las fuentes de información.</p>
+<div class="figure"><span style="display:block;" id="fig:entrenamientoModelo"></span>
+<img src="images-1/02/entrenamientoModelo.jpg" alt="Entrenamiento del modelo" width="100%" />
+<p class="caption">
+Recuadro 2.16: Entrenamiento del modelo
+</p>
+</div>
 <p><strong>A diferencia del módulo de actualización de indicadores que explota el último periodo de referencia disponible para cada fuente de información, en este módulo se explotan todos los periodos de referencia disponibles para todas las mismas fuentes de información, incorporando, además, los resultados de todas las inspecciones realizadas a la fecha.</strong> El SIDIL contempla que la explotación histórica de todos los indicadores laborales se realice desde 2012 en adelante, siempre que esté disponible la fuente de información. En concreto, dada la información disponible, estos son los periodos temporales cubiertos por fuente de información:</p>
 <ul>
 <li><p>ENOE: 2012 en adelante, de manera anual, utilizando el primer trimestre, toda vez que refleja la aplicación el cuestionario ampliado (ver sección 4.1.4.1.1).</p></li>
@@ -551,26 +713,73 @@ que el requerido para abrir y ejecutar el código en una consola.
 <li><p>Censo Económico: 2019, toda vez que no preexiste un ejercicio similar al que realizó la STPS con el INEGI (ver más adelante sección 4.1.4.3).</p></li>
 </ul>
 <p><strong>De esa manera, la explotación histórica no es otra cosa que repetir de manera iterativa el mismo procedimiento de generación de indicadores del módulo I pero extendiendo el horizonte temporal.</strong> Claro está que conforme se extiende el periodo de referencia, aumenta el número de desafíos en materia de la infraestructura de cómputo y estructura de datos. Por poner un ejemplo, varios campos de columnas en insumos del IMSS cambian de nombre a lo largo del tiempo (motivo por el cual se estableció un catálogo de campos que permite armonizar dichos campos).</p>
-<p><strong>La diferencia sustantiva entre el módulo II y el módulo IV, además de la extensión del periodo temporal para el cálculo de indicadores, es que, a diferencia del módulo II, en el módulo IV la unidad de observación no es el centro de trabajo sino la inspección a nivel submateria.</strong> Para predecir la probabilidad de incumplimiento a cada uno de los CT en el entrenamiento del modelo se incluye en el análisis el universo de de 1.1 millones de inspecciones, que genera más de 5.8 millones de pares inspecciones–submaterias distintas.</p>
+<p><strong>La diferencia sustantiva entre el módulo II y el módulo IV, además de la extensión del periodo temporal para el cálculo de indicadores, es que, a diferencia del módulo II, en el módulo IV la unidad de observación no es el centro de trabajo sino la inspección a nivel submateria.</strong> Para predecir la probabilidad de incumplimiento a cada uno de los CT en el entrenamiento del modelo se incluye en el análisis el universo de 1.1 millones de inspecciones, que genera más de 5.8 millones de pares inspecciones–submaterias distintas.</p>
 <p>La explotación histórica de todas las fuentes de información, inclusive los resultados de las inspecciones, permite la <strong>interacción entre variables</strong> provenientes de diferentes fuentes en el entrenamiento del modelo de aprendizaje de máquina (machine learning) que se utiliza para la predicción de riesgo. El modelo utilizado para este fin es el <strong>Random Forest</strong>, dadas que las pruebas realizadas con la información provista por la STPS dieron mejores resultados de predictibilidad con este modelo. Sin embargo, esto puede y debe revisarse conforme avance la literatura y la tecnología en esta materia.</p>
 <p>Un <strong>modelo Random Forest (RF) de aprendizaje automático utiliza múltiples árboles de decisión para hacer predicciones sobre un conjunto de datos</strong>. Los árboles de decisión son un tipo de modelo de aprendizaje automático que se utiliza para tomar decisiones basadas en datos. Se representan gráficamente como un árbol, donde cada nodo representa una decisión o una acción (en este caso, una variable atributo o indicador asociado a los CT) y las ramas que se desprenden de él representan las posibles opciones que se pueden tomar.</p>
 <p><strong>En el caso del modelo de RF que se utiliza, cada árbol de decisión en el modelo es una representación gráfica de las reglas que se utilizan para predecir la probabilidad de incumplimiento en una de las submaterias de inspección</strong>. Cada árbol en el modelo toma como entrada los indicadores que se han calculado para el centro de trabajo que se está evaluando y, a través de una serie de preguntas, clasifica el centro de trabajo en una de las dos categorías: violación o no violación procedente en la submateria en cuestión.</p>
-<p><mark>Placeholder imagen pixelada pendiente mejora</mark></p>
-<div class="figure"><span style="display:block;" id="fig:arboldecision"></span>
-<img src="images-1/02/arbol_decision.png" alt="Ejemplo de un árbol de decisión"  />
-<p class="caption">
-Recuadro 2.11: Ejemplo de un árbol de decisión
-</p>
-</div>
+<!-- [Placeholder imagen pixelada pendiente mejora]{.mark} -->
 <p><strong>En lugar de utilizar un solo árbol de decisión, el modelo RF utiliza múltiples árboles de decisión para mejorar la precisión de las predicciones.</strong> Cada árbol se entrena con diferentes subconjuntos de los datos y se combinan las predicciones de todos los árboles para determinar la probabilidad de incumplimiento del centro de trabajo en cada área de inspección.</p>
 <p><strong>En este caso, el RF se utiliza como “multioutput”, es decir, para predecir la probabilidad de que un CT incumpla en cada una de las submaterias de inspección laboral, independientemente de la probabilidad de incumplimiento en otras submaterias.</strong> El modelo funciona al tomar en cuenta los indicadores imputados a los centros de trabajo y analizar cómo se relacionan con el historial de incumplimiento en diferentes áreas de inspección. Luego, utiliza esta información para hacer una predicción sobre la probabilidad de que un CT incumpla en el futuro. Esto lo hace para cada una de las submaterias, de manera independiente.</p>
 <p><strong>El número de observaciones que entra en el entrenamiento del modelo equivale al número de inspecciones a nivel submateria para las cuales hubo un desahogo registrado en el sistema.</strong> Es decir, un centro de trabajo con un ID determinado, pudo haber sido inspeccionado en más de un año diferente. En cada una de esas inspecciones, se pudieron haber cubierto las mismas o diferentes submaterias. Por cada combinación de estos factores (ID del centro de trabajo, de la inspección y de la submateria), habrá una fila en la base que se conforma para el entrenamiento. Para un mismo CT y año, aunque fueran diferentes submaterias, los valores de los indicadores imputados de manera nominativa o por nivel de agregación serán los mismos, toda vez que éstos se generan a nivel anual. Es decir, las poco más de 1.1 millones de inspecciones han cubierto, en promedio, poco más de cinco submaterias cada una. Al analizarlo a ese nivel, naturalmente, los atributos de los centros de trabajo, junto con los indicadores asociados a ellos, guardan el mismo valor para todas las diferentes filas (submaterias) de la misma inspección (dado que las submaterias se inspeccionan al mismo tiempo) y lo que sí cambia es la variable dependiente (si se encuentran o no violaciones que proceden a nivel submateria).</p>
 <p><strong>Entonces, las variables de entrada en dicho modelo son los indicadores que se calcularon en el primer módulo y que se imputaron a los centros de trabajo.</strong> La variable de salida es una variable dicotómica que toma valor uno si en dicha inspección se estableció que hay al menos una violación que procede y valor nulo si no se encontró ninguna violación.</p>
 <p>De esa manera, a partir del entrenamiento del modelo Random Forest sobre el conjunto de datos históricos se guarda o exporta el <strong>modelo entrenado para la predicción de riesgo</strong> por submateria a partir de los indicadores y atributos imputados de manera histórica. Dicho modelo entrenado se utiliza luego para la predicción de riesgos sobre el universo de CT caracterizado con los indicadores coyunturales que se calculan en el módulo I y se imputan en el módulo II. Así, este modelo entrenado nos permitirá, para cada CT, calcular <strong>predicciones de riesgo</strong>, utilizando el modelo entrenado a partir del registro histórico de inspecciones y los atributos e indicadores observados al momento de dichas inspecciones.</p>
 <p>Para ilustrar la relación entre el entrenamiento del modelo con datos históricos y la predicción de riesgo con datos coyunturales, puede servir la siguiente analogía: imagine que el propósito es predecir a un paciente que se presenta a consulta médica la probabilidad de ocurrencia de cada una de las siguientes enfermedades cardiovasculares: insuficiencia cardíaca, hipertensión arterial, exceso de colesterol, infarto de miocardio, etc. Por otro lado, imagine que existen factores que explican, causan, o al menos se correlacionan con la ocurrencia de estas enfermedades cardiovasculares: edad, sexo, la mala alimentación, falta de actividad física, el consumo de alcohol, la diabetes. Estos factores son medibles o al menos averiguables, al momento en el que el paciente se presenta a consulta médica. Esta medición es “en tiempo real” al momento de la consulta. Conviene asociar los siguientes conceptos: los diferentes tipos de enfermedades cardiovasculares serían las diferentes submaterias del marco normativo de la inspección, mientras que los indicadores y atributos son los factores de salud (edad, sexo, alimentación), que son medibles en tiempo real, lo cual se asimila al cálculo coyuntural de indicadores, que ocurre en el módulo I. Pero también el historial médico de millones de pacientes que fueron estudiados por la medicina, y a los cuales se les detectó o no cada una de estas enfermedades, se analiza en el módulo IV: se identifica qué pacientes tuvieron enfermedades y se busca asociar dichas enfermedades con la presencia, ausencia o nivel de ciertos factores, que al momento de detectarse dicha enfermedad fueron medidos. Dicho análisis histórico de factores versus enfermedades, o de indicadores y atributos versus violaciones laborales a nivel submateria es el entrenamiento del modelo. Pero, muy importante, el modelo entrenado (o en este ejemplo la medicina) busca predecir cierta probabilidad sobre una población siempre cambiante, sobre la cual lo único que puede observar es lo que se puede medir: los indicadores laborales (o los factores de salud como edad, sexo, alimentación). Dicho de otra forma, la predicción se realiza sobre una “nueva” población que además por definición estará en un cambio constante.</p>
+<div class="figure"><span style="display:block;" id="fig:frecuenciaModIV"></span>
+<img src="images-1/important-icon.svg" alt="La utilidad de los secuenciadores" width="50px" style="float:left; background-color: #fff; padding-right:1em" />
+<p class="caption">
+Recuadro 2.17: La utilidad de los secuenciadores
+</p>
+</div>
+<div class="rmdcomment">
+<p>
+¿Con qué frecuencia debe actualizarse el módulo IV? Esta pregunta
+podría tener diferentes respuestas, según diversos factores como la
+disponibilidad de tiempo del personal de la DGIET, la precisión con la
+que se quiera operar el SIDIL, el volumen y la distribución de las
+inspecciones que se realicen, etc. Poniendo en la balanza estos y otros
+factores, cabe sugerir que el módulo IV, el cual es el
+computacionalmente más intensivo dado el periodo temporal que cubre, no
+requiere ser actualizado con la misma frecuencia que los demás módulos
+(mismo que se propone sea cada tres meses). Esto porque, todo lo demás
+constante, no es sustantiva la aportación que realice al entrenamiento
+del modelo la incorporación de tres, seis o incluso nueve meses de
+inspección, claro está, salvo que éstas sean de un volumen considerable
+o representen un cambio sustantivo respecto a los antecedentes. Podría
+pensarse que el módulo IV puede actualizarse cada uno o dos años, a
+menos que se observe la ocurrencia de algunos eventos como los
+siguientes:
+</p>
+<ol style="list-style-type: decimal">
+<li>
+Que se identifique que la predicción del modelo ha empeorado y que
+se requiere reentrenar el mismo probando otra configuración de
+hiperparámetros.
+</li>
+<li>
+Que se requiera predecir el riesgo de incumplimiento en ciertas
+submaterias sobre las cuales no hay predicciones actualmente.
+</li>
+<li>
+Que cambien los criterios y/o procedimientos para determinar las
+violaciones que proceden en los CT, o que se observe un cambio abrupto
+en los porcentajes de violaciones que procedene.
+</li>
+<li>
+Que se incorporen nuevos indicadores laborales o atributos sobre los
+CT en el DNE, y se pretenda incluir estos como variables de entrada en
+el modelo predictivo.
+</li>
+</ol>
+</div>
 
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>De manera análoga, dado que el SIDIL explota registros administrativos del IMSS y calcula ciertos indicadores a nivel <em>registro</em> patronal, cabe observar que los indicadores se calculan para todos los registros patronales, independientemente de que éstos sean “encontrados” en el DNE.<a href="estructura-y-flujos-de-trabajo-del-sidil.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -626,13 +835,27 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "none",
+"collapse": "section",
 "scroll_highlight": true
 }
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

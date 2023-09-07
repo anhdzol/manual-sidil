@@ -206,7 +206,14 @@ footer a {
     color: #9f2242;
 }
 
-
+@media all and (max-width: 990px){
+    .buttons-container{
+        display: flex;
+        flex-direction: column;
+        padding-left: 0!important;
+        margin-top: 10px;
+    }
+}
 
 @media all and (max-width: 720px) {
     .cover__title p{
@@ -216,6 +223,7 @@ footer a {
         flex-direction: column;
         padding-bottom: 50px;
         padding-top: 30px;
+        height: auto;
     }
     #cover div{
         width: 80%;
@@ -227,5 +235,14 @@ footer a {
     }
     #video-sidil{
         height: 300px;
+    }
+    .buttons-container{
+        display: flex;
+        flex-direction: column;
+        padding-left: 0!important;
+        margin-top: 10px;
+    }
+    .button{
+        margin-top: 10px;
     }
   }
